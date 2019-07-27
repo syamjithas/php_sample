@@ -20,10 +20,12 @@ echo '<link rel="stylesheet" href="' . urlBase() . '/css/style.css">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/lib/bootstrap/css/bootstrap.min.css">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/lib/bootstrap/css/bootstrap-grid.min.css">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/lib/bootstrap/css/bootstrap-reboot.min.css">';
+echo '<link rel="stylesheet" href="' . urlBase() . '/lib/jquery.toast.min.css">';
 echo '<script src="' . urlBase() . '/lib/jquery-3.4.1.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/bootstrap/js/popper.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/bootstrap/js/bootstrap.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/bootstrap/js/bootstrap.bundle.min.js"></script>';
+echo '<script src="' . urlBase() . '/lib/jquery.toast.min.js"></script>';
 echo '<script src="' . urlBase() . '/script/script.js"></script>';
 ?>
 
