@@ -12,6 +12,7 @@
         Ayur Rekha(Health information exchange)
     </header>
     <div class="container">
+
         <div class="content">
             <span class="img-box">
                 <span class="human-heart-box">
@@ -46,7 +47,7 @@
                         <input type="password" pattern="^[0-9]" class="form-control" id="otp-txt" placeholder="" minlength="4" maxlength="4" required>
                         <div class="input-group-append">
                             <span class="input-group-text">
-                        <span id="counter-timer" class="badge badge-warning">00:00</span>
+                                <span id="counter-timer" class="badge badge-warning">00:00</span>
                             </span>
                         </div>
                         <div class="invalid-feedback">
@@ -59,7 +60,6 @@
                 </form>
             </span>
         </div>
-
     </div>
     <script>
         bindAllScript()

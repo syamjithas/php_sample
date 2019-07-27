@@ -17,13 +17,13 @@ function urlBase()
 <?php
 echo '<link rel="shortcut icon" href="' . urlBase() . '/image/favicon.ico" type="image/x-icon">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/css/style.css">';
-echo '<link rel="stylesheet" href="' . urlBase() . '/lib/jquery/css/bootstrap.min.css">';
-echo '<link rel="stylesheet" href="' . urlBase() . '/lib/jquery/css/bootstrap-grid.min.css">';
-echo '<link rel="stylesheet" href="' . urlBase() . '/lib/jquery/css/bootstrap-reboot.min.css">';
-echo '<script src="' . urlBase() . '/lib/jquery/js/jquery-3.3.1.slim.min.js"></script>';
-echo '<script src="' . urlBase() . '/lib/jquery/js/popper.min.js"></script>';
-echo '<script src="' . urlBase() . '/lib/jquery/js/bootstrap.min.js"></script>';
-echo '<script src="' . urlBase() . '/lib/jquery/js/bootstrap.bundle.min.js"></script>';
+echo '<link rel="stylesheet" href="' . urlBase() . '/lib/bootstrap/css/bootstrap.min.css">';
+echo '<link rel="stylesheet" href="' . urlBase() . '/lib/bootstrap/css/bootstrap-grid.min.css">';
+echo '<link rel="stylesheet" href="' . urlBase() . '/lib/bootstrap/css/bootstrap-reboot.min.css">';
+echo '<script src="' . urlBase() . '/lib/jquery-3.4.1.min.js"></script>';
+echo '<script src="' . urlBase() . '/lib/bootstrap/js/popper.min.js"></script>';
+echo '<script src="' . urlBase() . '/lib/bootstrap/js/bootstrap.min.js"></script>';
+echo '<script src="' . urlBase() . '/lib/bootstrap/js/bootstrap.bundle.min.js"></script>';
 echo '<script src="' . urlBase() . '/script/script.js"></script>';
 ?>
 
