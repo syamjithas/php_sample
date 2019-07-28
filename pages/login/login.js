@@ -1,10 +1,10 @@
 function bindAllScript() {
     bindValidation();
-    var option={};
-    option.animation =true;
-    option.autohide =true;
-    option.delay =50000;
-   // $('.toast').toast(option);
+    var option = {};
+    option.animation = true;
+    option.autohide = true;
+    option.delay = 50000;
+    // $('.toast').toast(option);
     $('#toster').toast(option);
 
 }
@@ -30,17 +30,32 @@ function signIn(event) {
 function generateOtp(event) {
     var ele = $(event.target)
     var form = ele.parents('form')[0];
-    var fiveMinutes = 10;
+    var fiveMinutes = 60*2;
     var display = document.querySelector('#counter-timer');
     if (form.checkValidity() === true) {
-        var aadhaarId = $('aadhaar-id-txt').val();
+        var aadhaarId = $('#aadhaar-id-txt').val();
         var request = {};
-        request.aaadhaarId = aadhaarId;
-        $.post($hieUtil.getBaseUrl() + "/pages/login/generate_otp.php", request, 
-        function (data) {
-            console.log(data);
-            $hieUtil.startTimer(fiveMinutes, display);
-            $('#toster').toast('show')
-        }, "json");
+        request.aadhaarId = aadhaarId;
+        $.post($hieUtil.getBaseUrl() + "/pages/login/generate_otp.php", JSON.stringify(request),
+            function (data) {
+                if (data.isValid) {
+                    $hieUtil.startTimer(fiveMinutes, display);
+                    $.toast({
+                        heading: 'Success',
+                        text: 'OTP Generated successfully',
+                        hideAfter: 5000,
+                        icon: 'success',
+                        position: 'bottom-right'
+                    })
+                }else{
+                    $.toast({
+                        heading: 'Error',
+                        text: 'Please enter a valid Aadhaar number',
+                        hideAfter: 5000,
+                        icon: 'error',
+                        position: 'bottom-right'
+                    })
+                }
+            }, "json");
     }
 }

@@ -7,3 +7,9 @@ CREATE TABLE `hie_db`.`otp_history` (
   `date_of_generation` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
 COMMENT = 'This table is using for store generate and store dummy otp ';
+
+CREATE TABLE `hie_db`.`aadhaar_dump` (
+  `id` INT NOT NULL,
+  `aadhaar_num` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
+
