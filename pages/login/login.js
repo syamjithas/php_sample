@@ -1,12 +1,5 @@
 function bindAllScript() {
     bindValidation();
-    var option = {};
-    option.animation = true;
-    option.autohide = true;
-    option.delay = 50000;
-    // $('.toast').toast(option);
-    $('#toster').toast(option);
-
 }
 
 function bindValidation() {
@@ -22,20 +15,49 @@ function bindValidation() {
 }
 function signIn(event) {
     var ele = $(event.target)
-    var form = ele.parents('form')[0]
-    if (form.checkValidity() === true) {
-
+    var form = ele.parents('form')[0];
+    var aadharForm = $('#aadhar-form')[0];
+    if (!aadharForm.checkValidity()) {
+        aadharForm.classList.add('was-validated');
+        return;
+    }
+    if (form.checkValidity()) {
+        var request = {};
+        var otp = $('#otp-txt').val();
+        var aadhaar_num = $('#aadhaar-id-txt').val();
+        request.aadhaar_num = aadhaar_num;
+        request.otp = otp;
+        $.post($hieUtil.getBaseUrl() + "/pages/login/validate_otp.php", JSON.stringify(request),
+            function (data) {
+                if (data.isValid) {
+                    $.toast({
+                        heading: 'Success',
+                        text: 'OTP Generated successfully',
+                        hideAfter: 5000,
+                        icon: 'success',
+                        position: 'bottom-right'
+                    })
+                } else {
+                    $.toast({
+                        heading: 'Error',
+                        text: 'Incorrect OTP Please Try Again',
+                        hideAfter: 5000,
+                        icon: 'error',
+                        position: 'bottom-right'
+                    })
+                }
+            }, "json");
     }
 }
 function generateOtp(event) {
     var ele = $(event.target)
     var form = ele.parents('form')[0];
-    var fiveMinutes = 60*2;
+    var fiveMinutes = 60 * 2;
     var display = document.querySelector('#counter-timer');
-    if (form.checkValidity() === true) {
-        var aadhaarId = $('#aadhaar-id-txt').val();
+    if (form.checkValidity()) {
+        var aadhaar_num = $('#aadhaar-id-txt').val();
         var request = {};
-        request.aadhaarId = aadhaarId;
+        request.aadhaar_num = aadhaar_num;
         $.post($hieUtil.getBaseUrl() + "/pages/login/generate_otp.php", JSON.stringify(request),
             function (data) {
                 if (data.isValid) {
@@ -47,7 +69,7 @@ function generateOtp(event) {
                         icon: 'success',
                         position: 'bottom-right'
                     })
-                }else{
+                } else {
                     $.toast({
                         heading: 'Error',
                         text: 'Please enter a valid Aadhaar number',

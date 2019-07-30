@@ -8,8 +8,11 @@ classHie.prototype.getBaseUrl = function () {
     return basePath;
 }
 classHie.prototype.startTimer = function (duration, display) {
+    if (window.timerInterval) {
+        window.clearInterval(window.timerInterval);
+    }
     var timer = duration, minutes, seconds;
-    var timerInterval = setInterval(function () {
+    window.timerInterval = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -19,8 +22,8 @@ classHie.prototype.startTimer = function (duration, display) {
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            window.clearInterval(timerInterval);
-            display.textContent ="00:00";
+            window.clearInterval(window.timerInterval);
+            display.textContent = "00:00";
         }
     }, 1000);
 }

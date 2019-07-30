@@ -12,7 +12,6 @@
         Ayur Rekha(Health information exchange)
     </header>
     <div class="container">
-
         <div class="content">
             <span class="img-box">
                 <span class="human-heart-box">
@@ -20,7 +19,7 @@
                 </span>
             </span>
             <span class="login-box">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" id="aadhar-form" novalidate>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Aadhaar ID</span>
@@ -44,7 +43,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">OTP</span>
                         </div>
-                        <input type="password" pattern="^[0-9]" class="form-control" id="otp-txt" placeholder="" minlength="4" maxlength="4" required>
+                        <input type="password"  class="form-control" id="otp-txt" placeholder="" minlength="4" maxlength="4" required>
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <span id="counter-timer" class="badge badge-warning">00:00</span>
