@@ -7,6 +7,13 @@ classHie.prototype.getBaseUrl = function () {
     var basePath = a.origin + '/' + a.pathname.split('/')[1] + '/';
     return basePath;
 }
+classHie.prototype.getBaseDir = function () {
+    var a = document.createElement("a");
+    a.href = location.href;
+    var basePath =  a.pathname.split('/')[1] + '/';
+    return basePath;
+}
+
 classHie.prototype.startTimer = function (duration, display) {
     if (window.timerInterval) {
         window.clearInterval(window.timerInterval);

@@ -20,7 +20,7 @@
         <tbody>
             <?php
             require '../../config/config.inc.php';
-            $sql = "SELECT * FROM otp_history LIMIT 100";
+            $sql = "SELECT * FROM otp_history ORDER BY date_of_generation DESC LIMIT 100";
             $result = mysqli_query($conn, $sql);	
           
              if(mysqli_num_rows($result)==0){

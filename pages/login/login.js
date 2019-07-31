@@ -31,12 +31,15 @@ function signIn(event) {
             function (data) {
                 if (data.isValid) {
                     $.toast({
-                        heading: 'Success',
-                        text: 'OTP Generated successfully',
-                        hideAfter: 5000,
+                        heading: 'Autheticated',
+                        text: 'OTP Validated ,Redirecting to your Profile',
+                        hideAfter: 3000,
                         icon: 'success',
                         position: 'bottom-right'
                     })
+                    setTimeout(function () {
+                        window.location.pathname= $hieUtil.getBaseDir() + "pages/profile/profile.php"
+                    }, 3000)
                 } else {
                     $.toast({
                         heading: 'Error',

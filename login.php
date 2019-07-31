@@ -9,7 +9,12 @@
 
 <body>
     <header>
-        Ayur Rekha(Health information exchange)
+        <h3>
+            AYUR REKHA
+        </h3>
+        <h6>
+            HEALTH INFORMATION EXCHANGE
+        </h6>
     </header>
     <div class="container">
         <div class="content">
@@ -43,7 +48,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">OTP</span>
                         </div>
-                        <input type="password"  class="form-control" id="otp-txt" placeholder="" minlength="4" maxlength="4" required>
+                        <input type="password" class="form-control" id="otp-txt" placeholder="" minlength="4" maxlength="4" required>
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <span id="counter-timer" class="badge badge-warning">00:00</span>
