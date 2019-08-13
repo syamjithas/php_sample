@@ -10,7 +10,7 @@ classHie.prototype.getBaseUrl = function () {
 classHie.prototype.getBaseDir = function () {
     var a = document.createElement("a");
     a.href = location.href;
-    var basePath =  a.pathname.split('/')[1] + '/';
+    var basePath = a.pathname.split('/')[1] + '/';
     return basePath;
 }
 
@@ -33,6 +33,52 @@ classHie.prototype.startTimer = function (duration, display) {
             display.textContent = "00:00";
         }
     }, 1000);
+}
+classHie.prototype.loader = function () {
+    $('#loader-box').toggleClass('loader-disable');
+    $('#loader-box').toggleClass('loader-enable');
+}
+/*
+Function for trigger XML Http Request 
+*/
+classHie.prototype.xhr = function (reqObj) {
+    this.loader();
+    setTimeout(function () {
+        $hieUtil.loader();
+        $[reqObj.requestMethod](reqObj.url, reqObj.request,
+            function (data) {
+                if (data.status == "success") {
+                    $.toast({
+                        heading: 'Success',
+                        text: data.message,
+                        hideAfter: 2000,
+                        icon: 'success',
+                        position: 'bottom-right'
+                    })
+                    reqObj.successCallback(data);
+                } else if (data.status == "error") {
+                    $.toast({
+                        heading: 'Error',
+                        text: data.message,
+                        hideAfter: 2000,
+                        icon: 'error',
+                        position: 'bottom-right'
+                    })
+                    reqObj.errorCallback(data);
+                }
+                else if (data.status == "backend-error") {
+                    $.toast({
+                        heading: 'Service Exception',
+                        text: data.message,
+                        hideAfter: 2000,
+                        icon: 'error',
+                        position: 'bottom-right'
+                    })
+                    reqObj.errorCallback(data);
+                }
+
+            }, "json");
+    }, 2000)
 }
 
 

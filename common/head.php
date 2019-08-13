@@ -10,13 +10,11 @@ function urlBase()
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<script src=""></script>
-<script src=""></script>
-<script src=""></script>
 
 <?php
 echo '<link rel="shortcut icon" href="' . urlBase() . '/image/favicon.ico" type="image/x-icon">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/css/style.css">';
+echo '<link rel="stylesheet" href="' . urlBase() . '/css/header.css">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/lib/bootstrap/css/bootstrap.min.css">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/lib/bootstrap/css/bootstrap-grid.min.css">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/lib/bootstrap/css/bootstrap-reboot.min.css">';

@@ -13,6 +13,7 @@ function bindValidation() {
         }, false);
     });
 }
+
 function signIn(event) {
     var ele = $(event.target)
     var form = ele.parents('form')[0];
@@ -27,60 +28,39 @@ function signIn(event) {
         var aadhaar_num = $('#aadhaar-id-txt').val();
         request.aadhaar_num = aadhaar_num;
         request.otp = otp;
-        $.post($hieUtil.getBaseUrl() + "/pages/login/validate_otp.php", JSON.stringify(request),
-            function (data) {
+        $hieUtil.xhr({
+            requestMethod: "post",
+            url: $hieUtil.getBaseUrl() + "/pages/login/validate_otp.php",
+            request: JSON.stringify(request),
+            successCallback: function (data) {
                 if (data.isValid) {
-                    $.toast({
-                        heading: 'Autheticated',
-                        text: 'OTP Validated ,Redirecting to your Profile',
-                        hideAfter: 3000,
-                        icon: 'success',
-                        position: 'bottom-right'
-                    })
                     setTimeout(function () {
-                        window.location.pathname= $hieUtil.getBaseDir() + "pages/profile/profile.php"
+                        window.location.pathname = $hieUtil.getBaseDir() + "pages/profile/profile.php"
                     }, 3000)
-                } else {
-                    $.toast({
-                        heading: 'Error',
-                        text: 'Incorrect OTP Please Try Again',
-                        hideAfter: 5000,
-                        icon: 'error',
-                        position: 'bottom-right'
-                    })
                 }
-            }, "json");
+            },
+            errorCallback: function (data) { }
+        });
     }
 }
 function generateOtp(event) {
     var ele = $(event.target)
     var form = ele.parents('form')[0];
-    var fiveMinutes = 60 * 2;
     var display = document.querySelector('#counter-timer');
     if (form.checkValidity()) {
         var aadhaar_num = $('#aadhaar-id-txt').val();
         var request = {};
         request.aadhaar_num = aadhaar_num;
-        $.post($hieUtil.getBaseUrl() + "/pages/login/generate_otp.php", JSON.stringify(request),
-            function (data) {
+        $hieUtil.xhr({
+            requestMethod: "post",
+            url: $hieUtil.getBaseUrl() + "/pages/login/generate_otp.php",
+            request: JSON.stringify(request),
+            successCallback: function (data) {
                 if (data.isValid) {
-                    $hieUtil.startTimer(fiveMinutes, display);
-                    $.toast({
-                        heading: 'Success',
-                        text: 'OTP Generated successfully',
-                        hideAfter: 5000,
-                        icon: 'success',
-                        position: 'bottom-right'
-                    })
-                } else {
-                    $.toast({
-                        heading: 'Error',
-                        text: 'Please enter a valid Aadhaar number',
-                        hideAfter: 5000,
-                        icon: 'error',
-                        position: 'bottom-right'
-                    })
+                    $hieUtil.startTimer(60 * 2, display);
                 }
-            }, "json");
+            },
+            errorCallback: function (data) { }
+        });
     }
 }

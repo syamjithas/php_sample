@@ -6,6 +6,7 @@
 </head>
 
 <body>
+<?php include '../../common/header.php'; ?>
 
 </body>
 

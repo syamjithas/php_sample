@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <?php include 'common/loader.php'; ?>
     <header>
         <h3>
             AYUR REKHA
