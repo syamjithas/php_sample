@@ -6,8 +6,20 @@
 </head>
 
 <body>
-<?php include '../../common/header.php'; ?>
-
+        <div class="page-wrapper chiller-theme toggled">
+                <?php include '../../common/side-nav.php'; ?>
+                <main class="page-content">
+                        <div class="hie-header">
+                                <h3>
+                                        AYUR REKHA
+                                </h3>
+                                <h6>
+                                        HEALTH INFORMATION EXCHANGE
+                                </h6>
+                        </div>
+                </main>
+        </div>
+        <?php include '../../common/footer.php'; ?>
 </body>
 
 </html>
