@@ -2,7 +2,7 @@
 require '../../config/config.inc.php';
 header("Content-type: text/json");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $response = new \stdClass();
+  $response = new stdClass();
   try {
     $data = json_decode(file_get_contents('php://input'), true);
     $aadhaar_num = isset($data['aadhaar_num']) ? $data['aadhaar_num'] : '';
@@ -24,22 +24,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $response->isValid = true;
       $response->status = "success";
       $response->message = "OTP Generated successfully";
-      echo json_encode($response, true);
+      echo json_encode($response);
     } else {
       $response->isValid = false;
       $response->status = "error";
       $response->message = "Please enter a valid Aadhaar number";
-      echo json_encode($response, true);
+      echo json_encode($response);
     }
   } catch (Exception $e) {
     $response->status = "backend-error";
     $response->message = "Exception Occurred" . $e->getMessage();
-    echo json_encode($response, true);
+    echo json_encode($response);
   }
 }else{
-  $response = new \stdClass();
+  $response = new stdClass();
   $response->status = "backend-error";
   $response->message = "Request methord is not supported";
-  echo json_encode($response, true);
+  echo json_encode($response);
 }
 ?>

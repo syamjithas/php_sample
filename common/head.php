@@ -1,9 +1,10 @@
 <?php
 function urlBase()
 {
-    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http';
-    $url = $protocol . '://' . $_SERVER['SERVER_NAME'] . '/' . explode('/', $_SERVER['REQUEST_URI'])[1];
-    return $url;
+    //$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http';
+    //$url = $protocol . '://' . $_SERVER['SERVER_NAME'] . '/' . explode('/', $_SERVER['REQUEST_URI'])[1];
+    // return $url;
+    return 'http://localhost/hie';
 }
 ?>
 <meta charset="UTF-8">
