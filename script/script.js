@@ -1,5 +1,5 @@
 var classHie = function () {
-
+    this.basePath = 'http://localhost/hie/';
 }
 classHie.prototype.getBaseUrl = function () {
     var a = document.createElement("a");

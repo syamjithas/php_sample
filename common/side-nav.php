@@ -1,3 +1,15 @@
+<?php require '../../config/config.inc.php';
+echo '<script src="' . urlBase() . '/script/side-nav.js"></script>';
+$aadhaar_num = $_GET["id"];
+$aadhaar_num = base64_decode($aadhaar_num);
+$sql = "SELECT * FROM user_details WHERE aadhaar_num='{$aadhaar_num}'";
+$result = mysqli_query($conn, $sql);
+$user = mysqli_fetch_array($result);
+$sql = "SELECT * FROM user_auth WHERE aadhaar_num='{$aadhaar_num}'";
+$result = mysqli_query($conn, $sql);
+$user_auth  = mysqli_fetch_array($result);
+?>
+
 <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
     <i class="fas fa-bars"></i>
 </a>
@@ -11,17 +23,27 @@
         </div>
         <div class="sidebar-header">
             <div class="user-pic">
-                <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+                <?php
+                if ($user['gender'] == 'M') {
+
+                    echo "<img class='img-responsive img-rounded' src='".urlBase()."/image/male.png' alt='User picture'>";
+                } else {
+                    echo "<img class='img-responsive img-rounded' src='".urlBase()."/image/female.jpg' alt='User picture'>";
+                } ?>
             </div>
             <div class="user-info">
-                <span class="user-name">Jhon
-                    <strong>Smith</strong>
+                <span class="user-name">
+
+                    <strong><?php echo ucwords($user['first_name']); ?></strong>
+                    <?php echo ucwords($user['last_name']); ?>
                 </span>
-                <span class="user-role">Administrator</span>
-                <span class="user-status">
+                <span class="user-role">
+                <?php echo ucwords($user_auth['role']); ?>
+                </span>
+                <!-- <span class="user-status">
                     <i class="fa fa-circle"></i>
                     <span>Online</span>
-                </span>
+                </span> -->
             </div>
         </div>
 
@@ -189,7 +211,7 @@
             <i class="fa fa-cog"></i>
             <span class="badge-sonar"></span>
         </a>
-        <a href="#">
+        <a href="#" onclick="signout()">
             <i class="fa fa-power-off"></i>
         </a>
     </div>

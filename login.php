@@ -9,14 +9,7 @@
 
 <body>
     <?php include 'common/loader.php'; ?>
-    <header>
-        <h3>
-            AYUR REKHA
-        </h3>
-        <h6>
-            HEALTH INFORMATION EXCHANGE
-        </h6>
-    </header>
+    <?php include 'common/header.php'; ?>
     <div class="container">
         <div class="content">
             <span class="img-box">
