@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $response->isValid = true;
       $response->status = "success";
       $response->message = "OTP Validated ,Redirecting to your Profile";
-      setcookie("id",base64_encode($aadhaar_num), time() + 3600);
+      setcookie("bas",base64_encode($aadhaar_num), time() + 3600,"/");
       echo json_encode($response);
     } else {
       $response->isValid = false;

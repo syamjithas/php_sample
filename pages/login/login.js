@@ -35,7 +35,7 @@ function signIn(event) {
             successCallback: function (data) {
                 if (data.isValid) {
                     setTimeout(function () {
-                        window.location.href = $hieUtil.getBaseUrl() + 'pages/profile/profile.php?id=' + btoa(aadhaar_num);
+                        window.location.href = $hieUtil.getBaseUrl() + 'pages/profile/profile.php';
                     }, 3000)
                 }
             },

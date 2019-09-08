@@ -1,7 +1,7 @@
 <?php require '../../config/config.inc.php';
 echo '<script src="' . urlBase() . '/script/side-nav.js"></script>';
 $aadhaar_num = $_GET["id"];
-$aadhaar_num = base64_decode($aadhaar_num);
+$aadhaar_num = base64_decode($_COOKIE["bas"]);
 $sql = "SELECT * FROM user_details WHERE aadhaar_num='{$aadhaar_num}'";
 $result = mysqli_query($conn, $sql);
 $user = mysqli_fetch_array($result);
@@ -31,9 +31,11 @@ $user_auth  = mysqli_fetch_array($result);
                     echo "<img class='img-responsive img-rounded' src='" . urlBase() . "/image/female.jpg' alt='User picture'>";
                 } ?>
             </div>
+            <br>
+            <br>
+            <br>
             <div class="user-info">
                 <span class="user-name">
-
                     <strong><?php echo ucwords($user['first_name']); ?></strong>
                     <?php echo ucwords($user['last_name']); ?>
                 </span>
@@ -46,15 +48,10 @@ $user_auth  = mysqli_fetch_array($result);
 
         <div class="sidebar-menu">
             <ul>
-
-                <li class="header-menu">
-                    <span>Extra</span>
-                </li>
                 <li class="sidebar-menu-item active">
                     <a href="#">
-                        <i class="fa fa-book"></i>
+                        <i class="fas fa-id-badge"></i>
                         <span>Documentation</span>
-                        <span class="badge badge-pill badge-primary">Beta</span>
                     </a>
                 </li>
                 <li>
