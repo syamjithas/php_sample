@@ -1,7 +1,10 @@
 <?php require '../../config/config.inc.php';
 echo '<script src="' . urlBase() . '/script/side-nav.js"></script>';
-$aadhaar_num = $_GET["id"];
 $aadhaar_num = base64_decode($_COOKIE["bas"]);
+setcookie("bas",base64_encode($aadhaar_num), time() + 3600,"/");
+if($aadhaar_num ==""){
+    header('Location: ' . urlBase() . '/login.php');
+}
 $sql = "SELECT * FROM user_details WHERE aadhaar_num='{$aadhaar_num}'";
 $result = mysqli_query($conn, $sql);
 $user = mysqli_fetch_array($result);
@@ -48,11 +51,24 @@ $user_auth  = mysqli_fetch_array($result);
 
         <div class="sidebar-menu">
             <ul>
-                <li class="sidebar-menu-item active">
+                <li class="sidebar-dropdown active">
                     <a href="#">
                         <i class="fas fa-id-badge"></i>
                         <span>Documentation</span>
                     </a>
+                    <div class="sidebar-submenu" style="display: block;">
+                        <ul>
+                            <li class="active">
+                                <a href="<?php echo  urlBase() . '/pages/profile/contact_and_basic_info.php' ?> ">Contact and Basic Info</a>
+                            </li>
+                            <li>
+                                <a href="#">Dashboard 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Dashboard 3</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <a href="#">

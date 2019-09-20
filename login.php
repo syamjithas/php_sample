@@ -23,7 +23,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Aadhaar ID</span>
                         </div>
-                        <input type="text" class="form-control" id="aadhaar-id-txt" placeholder="" minlength="12" maxlength="12" required>
+                        <input type="text" class="form-control"  id="aadhaar-id-txt" placeholder="" minlength="12" maxlength="12" autocomplete="false" required>
                         <div class="invalid-feedback">
                             Please Enter a valid Aadhaar Number
                         </div>
@@ -42,7 +42,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">OTP</span>
                         </div>
-                        <input type="password" class="form-control" id="otp-txt" placeholder="" minlength="4" maxlength="4" required>
+                        <input type="password" class="form-control" id="otp-txt" placeholder="" minlength="4" maxlength="4" autocomplete="false" required>
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <span id="counter-timer" class="badge badge-warning">00:00</span>

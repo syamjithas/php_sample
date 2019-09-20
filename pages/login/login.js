@@ -30,12 +30,12 @@ function signIn(event) {
         request.otp = otp;
         $hieUtil.xhr({
             requestMethod: "post",
-            url: $hieUtil.getBaseUrl() + "/pages/login/validate_otp.php",
+            url: $hieUtil.getBaseUrl() + $validate_otp,
             request: JSON.stringify(request),
             successCallback: function (data) {
                 if (data.isValid) {
                     setTimeout(function () {
-                        window.location.href = $hieUtil.getBaseUrl() + 'pages/profile/profile.php';
+                        window.location.href = $hieUtil.getBaseUrl() + $contact_and_basic_info;
                     }, 3000)
                 }
             },
@@ -53,7 +53,7 @@ function generateOtp(event) {
         request.aadhaar_num = aadhaar_num;
         $hieUtil.xhr({
             requestMethod: "post",
-            url: $hieUtil.getBaseUrl() + "/pages/login/generate_otp.php",
+            url: $hieUtil.getBaseUrl() + $generate_otp,
             request: JSON.stringify(request),
             successCallback: function (data) {
                 if (data.isValid) {

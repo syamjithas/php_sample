@@ -479,6 +479,7 @@ body {
 
 .chiller-theme .sidebar-wrapper ul li:hover a i,
 .chiller-theme .sidebar-wrapper .sidebar-dropdown .sidebar-submenu li a:hover:before,
+.chiller-theme .sidebar-wrapper .sidebar-dropdown .sidebar-submenu li.active a:before,
 .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu:focus+span,
 .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-menu-item.active a i,
 .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active a i {
