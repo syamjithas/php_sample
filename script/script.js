@@ -80,7 +80,14 @@ classHie.prototype.xhr = function (reqObj) {
             }, "json");
     }, 2000)
 }
-
+classHie.prototype.serializeArray = function (form) {
+    var fromData = {};
+    for (var key in form.elements) {
+        if (form.elements.hasOwnProperty(key) && form.elements[key].id)
+            fromData[form.elements[key].id] = form.elements[key].value;
+    }
+    return fromData;
+}
 
 $hieUtil = new classHie();
 
