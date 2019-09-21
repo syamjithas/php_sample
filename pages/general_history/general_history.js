@@ -7,28 +7,30 @@ var validation = Array.prototype.filter.call(forms, function (form) {
     }, false);
 });
 
-function edit_form() {
-    var ele = document.getElementById("general_history_fieldset");
-    ele.removeAttribute("disabled")
+function edit_form(ele) {
+    var fieldset = document.getElementById("general_history_fieldset");
+    fieldset.removeAttribute("disabled");
+    ele.setAttribute("disabled", "");
+    ele.nextElementSibling.removeAttribute("disabled");
 }
 
-
-function save_form() {
-    var form = document.getElementById('contact_and_basic_info');
+function save_form(ele) {
+    var form = document.getElementById('general_history_from');
     if (form.checkValidity()) {
         var request = $hieUtil.serializeArray(form);
         $hieUtil.xhr({
             requestMethod: "post",
-            url: $hieUtil.getBaseUrl() + $contact_and_basic_info_save,
+            url: $hieUtil.getBaseUrl() + $general_history_save,
             request: JSON.stringify(request),
             successCallback: function (data) {
                 if (data.isValid) {
-                    var ele = document.getElementById("contact_and_basic_info_fieldset");
-                    ele.setAttribute("disabled","")
+                    var fieldset = document.getElementById("general_history_fieldset");
+                    fieldset.setAttribute("disabled", "");
+                    ele.setAttribute("disabled", "");
+                    ele.previousElementSibling.removeAttribute("disabled");
                 }
             },
             errorCallback: function (data) { }
         });
     }
 }
-

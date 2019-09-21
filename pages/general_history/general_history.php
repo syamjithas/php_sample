@@ -2,155 +2,198 @@
 <html lang="en">
 
 <head>
-        <?php include '../../common/head.php'; ?>
+	<?php include '../../common/head.php'; ?>
 </head>
 
 <body>
-        <?php include '../../common/loader.php'; ?>
-        <div class="page-wrapper chiller-theme toggled">
-                <?php include '../../common/side-nav.php'; ?>
-                <main class="page-content">
-                        <?php include '../../common/header.php'; ?>
-                        <div class="container">
-                                <form id="general_history_from" class="needs-validation" autocomplete="off">
-                                        <fieldset id="general_history_fieldset" disabled autocomplete="false">
-                                                <div class="form-row">
-                                                        <div class="form-group col-md-3">
-                                                                <label for="marital_status">Marital Status</label>
-                                                                <select id="marital_status" class="form-control" required>
-                                                                        <option <?php if ($user['gender'] == '') echo "selected"; ?>value="">Choose...</option>
-                                                                        <option <?php if ($user['gender'] == 'Single') echo "selected"; ?> value="Single">Single</option>
-                                                                        <option <?php if ($user['gender'] == 'Married') echo "selected"; ?> value="Married">Married</option>
-                                                                        <option <?php if ($user['gender'] == 'Widowed') echo "selected"; ?> value="Widowed">Widowed</option>
-                                                                        <option <?php if ($user['gender'] == 'Separated') echo "selected"; ?> value="Separated">Separated</option>
-                                                                        <option <?php if ($user['gender'] == 'Divorced') echo "selected"; ?> value="Divorced">Divorced</option>
-                                                                </select>
-                                                        </div>
-                                                        <div class="form-group col-md-3">
-                                                                <label for="no_of_children">No of Children</label>
-                                                                <input type="number" class="form-control" id="no_of_children" placeholder="" value="<?php echo $user['middle_name'] ?>">
-                                                        </div>
-                                                </div>
+	<?php include '../../common/loader.php'; ?>
+	<div class="page-wrapper chiller-theme toggled">
+		<?php include '../../common/side-nav.php'; ?>
+		<main class="page-content">
+			<?php include '../../common/header.php'; ?>
+			<?php
+			$aadhaar_num = base64_decode($_COOKIE["bas"]);
+			$sql = "SELECT * FROM general_history WHERE aadhaar_num='{$aadhaar_num}'";
+			$result = mysqli_query($conn, $sql);
+			if (mysqli_num_rows($result) > 0) {
+				$general_history = mysqli_fetch_array($result);
+			}
+			?>
+			<div class="container">
+				<form id="general_history_from" class="needs-validation" autocomplete="off">
+					<fieldset id="general_history_fieldset" disabled autocomplete="false">
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<label for="marital_status">Marital Status</label>
+								<select name="marital_status" id="marital_status" class="form-control" required>
+									<option <?php if ($general_history['marital_status'] == '') echo "selected"; ?>value="">Choose...</option>
+									<option <?php if ($general_history['marital_status'] == 'Single') echo "selected"; ?> value="Single">Single</option>
+									<option <?php if ($general_history['marital_status'] == 'Married') echo "selected"; ?> value="Married">Married</option>
+									<option <?php if ($general_history['marital_status'] == 'Widowed') echo "selected"; ?> value="Widowed">Widowed</option>
+									<option <?php if ($general_history['marital_status'] == 'Separated') echo "selected"; ?> value="Separated">Separated</option>
+									<option <?php if ($general_history['marital_status'] == 'Divorced') echo "selected"; ?> value="Divorced">Divorced</option>
+								</select>
+							</div>
+							<div class="form-group col-md-2">
+								<label for="no_of_children">No of Children</label>
+								<input type="number" class="form-control" name="no_of_children" id="no_of_children" placeholder="" value="<?php echo $general_history['no_of_children'] ?>">
+							</div>
+						</div>
 
-                                                <div class="form-row">
-                                                        <div class="form-group col-md-3">
-                                                                <label>Habits Cigarette</label>
-                                                                <div class="form-group">
-                                                                        <div class="form-check form-check-inline">
-                                                                                <input class="form-check-input" value="<?php echo date('Y-m-d', strtotime($user['dob'])); ?>" type="radio" name="habits_cigarette" id="habits_cigarette1" value="option1">
-                                                                                <label class="form-check-label" for="habits_cigarette1">Yes</label>
-                                                                        </div>
-                                                                        <div class="form-check form-check-inline">
-                                                                                <input class="form-check-input" value="<?php echo date('Y-m-d', strtotime($user['dob'])); ?>" type="radio" name="habits_cigarette" id="habits_cigarette2" value="option2">
-                                                                                <label class="form-check-label" for="habits_cigarette2">No</label>
-                                                                        </div>
-                                                                        <div class="form-check form-check-inline">
-                                                                                <input class="form-check-input" value="<?php echo date('Y-m-d', strtotime($user['dob'])); ?>" type="radio" name="habits_cigarette" id="habits_cigarette3" value="option3">
-                                                                                <label class="form-check-label" for="habits_cigarette3">Occasionally</label>
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3">
-                                                                <label for="tobacco_snuff">Tobacco & snuff</label>
-                                                                <div class="form-group">
-                                                                        <div class="form-check form-check-inline">
-                                                                                <input class="form-check-input" value="<?php echo date('Y-m-d', strtotime($user['dob'])); ?>" type="radio" name="habits_cigarette" id="habits_cigarette1" value="option1">
-                                                                                <label class="form-check-label" for="habits_cigarette1">Yes</label>
-                                                                        </div>
-                                                                        <div class="form-check form-check-inline">
-                                                                                <input class="form-check-input" value="<?php echo date('Y-m-d', strtotime($user['dob'])); ?>" type="radio" name="habits_cigarette" id="habits_cigarette2" value="option2">
-                                                                                <label class="form-check-label" for="habits_cigarette2">No</label>
-                                                                        </div>
-                                                                        <div class="form-check form-check-inline">
-                                                                                <input class="form-check-input" value="<?php echo date('Y-m-d', strtotime($user['dob'])); ?>" type="radio" name="habits_cigarette" id="habits_cigarette3" value="option3">
-                                                                                <label class="form-check-label" for="habits_cigarette3">Occasionally</label>
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-                                                        <div class="form-group col-md-3">
-                                                                <label for="alcohol">Alcohol</label>
-                                                                <div class="form-group">
-                                                                        <div class="form-check form-check-inline">
-                                                                                <input class="form-check-input" value="<?php echo date('Y-m-d', strtotime($user['dob'])); ?>" type="radio" name="habits_cigarette" id="habits_cigarette1" value="option1">
-                                                                                <label class="form-check-label" for="habits_cigarette1">Yes</label>
-                                                                        </div>
-                                                                        <div class="form-check form-check-inline">
-                                                                                <input class="form-check-input" value="<?php echo date('Y-m-d', strtotime($user['dob'])); ?>" type="radio" name="habits_cigarette" id="habits_cigarette2" value="option2">
-                                                                                <label class="form-check-label" for="habits_cigarette2">No</label>
-                                                                        </div>
-                                                                        <div class="form-check form-check-inline">
-                                                                                <input class="form-check-input" value="<?php echo date('Y-m-d', strtotime($user['dob'])); ?>" type="radio" name="habits_cigarette" id="habits_cigarette3" value="option3">
-                                                                                <label class="form-check-label" for="habits_cigarette3">Occasionally</label>
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-                                                </div>
-                                                <div class="form-row">
-                                                        <div class="form-group col-md-4">
-                                                                <label for="email">Email </label>
-                                                                <input type="email" class="form-control" id="email" value="<?php echo $user['email'] ?>" required>
-                                                        </div>
-                                                        <div class="form-group col-md-4">
-                                                                <label for="primery_number">Primery Contact Number</label>
-                                                                <input type="text" maxlength="10" minlength="10" class="form-control" id="primery_number" value="<?php echo $user['primary_contact'] ?>" required>
-                                                        </div>
-                                                        <div class="form-group col-md-4">
-                                                                <label for="secondary_number">Secondary Contact Number</label>
-                                                                <input type="text" maxlength="10" minlength="10" class="form-control" id="secondary_number" value="<?php echo $user['secondary_contact'] ?>">
-                                                        </div>
-                                                </div>
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<label>Cigarette</label>
+								<div class="form-group">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['habits_cigarette']  ?  "checked" : ""; ?> type="radio" name="habits_cigarette" id="habits_cigarette1" value="Yes">
+										<label class="form-check-label" for="habits_cigarette1">Yes</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['habits_cigarette'] ?  "checked" : "";; ?> type="radio" name="habits_cigarette" id="habits_cigarette2" value="No">
+										<label class="form-check-label" for="habits_cigarette2">No</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['habits_cigarette'] ?  "checked" : ""; ?> type="radio" name="habits_cigarette" id="habits_cigarette3" value="Occasionally">
+										<label class="form-check-label" for="habits_cigarette3">Occasionally</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-3">
+								<label for="tobacco_snuff">Tobacco & snuff</label>
+								<div class="form-group">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['tobacco_snuff'] ?  "checked" : "";  ?> type="radio" name="tobacco_snuff" id="tobacco_snuff1" value="Yes">
+										<label class="form-check-label" for="tobacco_snuff1">Yes</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['tobacco_snuff'] ?  "checked" : "";  ?> type="radio" name="tobacco_snuff" id="tobacco_snuff2" value="No">
+										<label class="form-check-label" for="tobacco_snuff2">No</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['tobacco_snuff'] ?  "checked" : ""; ?> type="radio" name="tobacco_snuff" id="tobacco_snuff3" value="Occasionally">
+										<label class="form-check-label" for="tobacco_snuff3">Occasionally</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-3">
+								<label for="alcohol">Alcohol</label>
+								<div class="form-group">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['alcohol'] ?  "checked" : ""; ?> type="radio" name="alcohol" id="alcohol1" value="Yes">
+										<label class="form-check-label" for="alcohol1">Yes</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['alcohol'] ?  "checked" : ""; ?> type="radio" name="alcohol" id="alcohol2" value="No">
+										<label class="form-check-label" for="alcohol2">No</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['alcohol'] ?  "checked" : ""; ?> type="radio" name="alcohol" id="alcohol3" value="Occasionally">
+										<label class="form-check-label" for="alcohol3">Occasionally</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<label>Diabetes</label>
+								<div class="form-group">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['diabetes'] ?  "checked" : ""; ?> type="radio" name="diabetes" id="diabetes1" value="Yes">
+										<label class="form-check-label" for="diabetes1">Yes</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['diabetes'] ?  "checked" : ""; ?> type="radio" name="diabetes" id="diabetes2" value="No">
+										<label class="form-check-label" for="diabetes2">No</label>
+									</div>
 
-                                                <div class="form-row">
-                                                        <div class="form-group col-md-6">
-                                                                <label for="addressline1">Address</label>
-                                                                <input type="text" class="form-control" id="addressline1" placeholder="Flat /House No./Floot /Building" value="<?php echo $user['building'] ?>" required>
-                                                        </div>
-                                                        <div class="form-group col-md-6">
-                                                                <label for="addressline2">Address 2</label>
-                                                                <input type="text" class="form-control" id="addressline2" placeholder="Colony /Street /Locality" value="<?php echo $user['street'] ?>" required>
-                                                        </div>
-                                                </div>
-                                                <div class="form-row">
-                                                        <div class="form-group col-md-6">
-                                                                <label for="city">City</label>
-                                                                <input type="text" class="form-control" id="city" placeholder="Ernakulam" value="<?php echo $user['city'] ?>" required>
-                                                        </div>
-                                                        <div class="form-group col-md-4">
-                                                                <label for="state">State</label>
-                                                                <select id="state" class="form-control" required>
-                                                                        <option value="">Choose...</option>
-                                                                        <?php
-                                                                        $states = array("Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir ", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli", "Daman and Diu", "Lakshadweep", "National Capital Territory of Delhi", "Puducherry");
-                                                                        for ($i = 0; $i < count($states); $i++) {
-                                                                                echo '<option ' . ($user['state'] == $states[$i] ? 'selected="selected"' : '') . '>' . $states[$i] . '</option>';
-                                                                        }
-                                                                        ?>
+								</div>
+							</div>
+							<div class="form-group col-md-3">
+								<label for="tobacco_snuff">Cardiac Diseases</label>
+								<div class="form-group">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['cardiac_diseases'] ?  "checked" : ""; ?> type="radio" name="cardiac_diseases" id="cardiac_diseases1" value="Yes">
+										<label class="form-check-label" for="cardiac_diseases1">Yes</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['cardiac_diseases'] ?  "checked" : ""; ?> type="radio" name="cardiac_diseases" id="cardiac_diseases2" value="No">
+										<label class="form-check-label" for="cardiac_diseases2">No</label>
+									</div>
 
-                                                                </select>
-                                                        </div>
-                                                        <div class="form-group col-md-2">
-                                                                <label for="zip">Zip</label>
-                                                                <input type="text" class="form-control" id="zip" placeholder="686662" value="<?php echo $user['zip'] ?>" required>
-                                                        </div>
-                                                </div>
-                                        </fieldset>
-                                        <div class="form-group">
-                                                <button type="button" class="btn btn-primary" onclick="edit_form()">Edit</button>
-                                                <button type="submit" class="btn btn-success" onclick="save_form()">Save</button>
-                                        </div>
+								</div>
+							</div>
 
-                                        <!-- <div class="form-group">
-                                                <label for="exampleFormControlTextarea1">Example textarea</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-                                        </div> -->
-                                </form>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<label>Endrocrine & Others</label>
+								<div class="form-group">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['endrocrine_others'] ?  "checked" : ""; ?> type="radio" name="endrocrine_others" id="endrocrine_others1" value="Yes">
+										<label class="form-check-label" for="endrocrine_others1">Yes</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['endrocrine_others'] ?  "checked" : ""; ?> type="radio" name="endrocrine_others" id="endrocrine_others2" value="No">
+										<label class="form-check-label" for="endrocrine_others2">No</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-3">
+								<label>Eplepsy</label>
+								<div class="form-group">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['eplepsy'] ?  "checked" : ""; ?> type="radio" name="eplepsy" id="eplepsy1" value="Yes">
+										<label class="form-check-label" for="eplepsy1">Yes</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['eplepsy'] ?  "checked" : ""; ?> type="radio" name="eplepsy" id="eplepsy2" value="No">
+										<label class="form-check-label" for="eplepsy2">No</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-3">
+								<label for="alcohol">Cancer</label>
+								<div class="form-group">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['cancer'] ?  "checked" : ""; ?> type="radio" name="cancer" id="cancer1" value="Yes">
+										<label class="form-check-label" for="cancer1">Yes</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $general_history['cancer'] ?  "checked" : ""; ?> type="radio" name="cancer" id="cancer2" value="No">
+										<label class="form-check-label" for="cancer2">No</label>
+									</div>
+								</div>
+							</div>
+						</div>
 
-                        </div>
+						<div class="form-group">
+							<label for="medical">Medical</label>
+							<textarea class="form-control" name="medical" id="medical" rows="5"><?php echo $general_history['medical']; ?></textarea>
+						</div>
+						<div class="form-group">
+							<label for="surgical">Surgical</label>
+							<textarea class="form-control" name="surgical" id="surgical" rows="5"><?php echo $general_history['surgical']; ?></textarea>
+						</div>
+						<div class="form-group">
+							<label for="present_medications">Present Medications</label>
+							<textarea class="form-control" name="present_medications" id="present_medications" rows="5"><?php echo $general_history['present_medications']; ?></textarea>
+						</div>
+						<div class="form-group">
+							<label for="drug_allergies Allergies">Drug Allergies</label>
+							<textarea class="form-control" name="drug_allergies" id="drug_allergies" rows="5"><?php echo $general_history['drug_allergies']; ?></textarea>
+						</div>
 
-                </main>
-        </div>
-        <?php include '../../common/footer.php'; ?>
-        <script src="./general_history.js"></script>
+					</fieldset>
+					<div class="form-group">
+						<button type="button" class="btn btn-primary" onclick="edit_form(this)">Edit</button>
+						<button type="submit" class="btn btn-success" onclick="save_form(this)">Save</button>
+					</div>
+				</form>
+			</div>
+		</main>
+	</div>
+	<?php include '../../common/footer.php'; ?>
+	<script src="./general_history.js"></script>
 </body>
 
 </html>

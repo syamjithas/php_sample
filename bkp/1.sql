@@ -1,0 +1,1 @@
+INSERT INTO hie_db.general_history (aadhaar_num, marital_status, no_of_children, habits_cigarette, tobacco_snuff, alcohol, diabetes, cardiac_diseases, endrocrine_others, eplepsy, cancer, medical, surgical, present_medications, drug_allergies) VALUES ('684107489589', 'No', '0', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'NO', 'No', 'No', 'No');
