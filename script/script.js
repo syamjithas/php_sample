@@ -4,7 +4,7 @@ var classHie = function () {
 classHie.prototype.getBaseUrl = function () {
     var a = document.createElement("a");
     a.href = location.href;
-    var basePath = a.origin + '/' + a.pathname.split('/')[1] + '/';
+    var basePath = a.origin + '/' + a.pathname.split('/')[1];
     return basePath;
 }
 classHie.prototype.getBaseDir = function () {

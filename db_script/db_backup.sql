@@ -484,7 +484,7 @@ INSERT INTO `otp_history` (`id`, `aadhaar_num`, `otp`, `date_of_generation`) VAL
 	(12, '412620596040', '5798', '2019-07-31 22:48:41'),
 	(13, '349110940796', '1511', '2019-09-05 22:53:12'),
 	(14, '393371115804', '1800', '2019-09-05 23:10:25'),
-	(15, '821504288186', '5008', '2019-09-20 18:43:00');
+	(15, '821504288186', '3691', '2019-09-21 09:49:32');
 /*!40000 ALTER TABLE `otp_history` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.user_auth
@@ -517,7 +517,7 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `email` varchar(50) DEFAULT NULL,
   `primary_contact` varchar(50) DEFAULT NULL,
   `secondary_contact` varchar(50) DEFAULT NULL,
-  `pin` varchar(50) DEFAULT NULL,
+  `zip` varchar(50) DEFAULT NULL,
   `building` varchar(50) DEFAULT NULL,
   `street` varchar(50) DEFAULT NULL,
   `city` varchar(50) DEFAULT NULL,
@@ -528,8 +528,8 @@ CREATE TABLE IF NOT EXISTS `user_details` (
 -- Dumping data for table hie_db.user_details: 1 rows
 DELETE FROM `user_details`;
 /*!40000 ALTER TABLE `user_details` DISABLE KEYS */;
-INSERT INTO `user_details` (`aadhaar_num`, `first_name`, `middle_name`, `last_name`, `dob`, `gender`, `email`, `primary_contact`, `secondary_contact`, `pin`, `building`, `street`, `city`, `state`) VALUES
-	('821504288186', 'karthika\r\n', NULL, 'syamjith', '1999-01-26 00:00:00', 'F', 'karthikavijayan1999@gmail.com', '8078890407', NULL, '625421', 'Thannimalayil', NULL, NULL, NULL);
+INSERT INTO `user_details` (`aadhaar_num`, `first_name`, `middle_name`, `last_name`, `dob`, `gender`, `email`, `primary_contact`, `secondary_contact`, `zip`, `building`, `street`, `city`, `state`) VALUES
+	('821504288186', 'karthika', '', 'vijayan', '1999-01-26 00:00:00', 'F', 'karthikavijayan1999@gmail.com', '8078890407', '', '625421', 'Thannimalayile', 'Koothattukulam', 'Ernakulam', 'Nagaland');
 /*!40000 ALTER TABLE `user_details` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -8,7 +8,7 @@ var validation = Array.prototype.filter.call(forms, function (form) {
 });
 
 function edit_form() {
-    var ele = $(event.target).closest('form')[0].querySelector('fieldset')
+    var ele = document.getElementById("general_history_fieldset");
     ele.removeAttribute("disabled")
 }
 
@@ -23,7 +23,8 @@ function save_form() {
             request: JSON.stringify(request),
             successCallback: function (data) {
                 if (data.isValid) {
-                   
+                    var ele = document.getElementById("contact_and_basic_info_fieldset");
+                    ele.setAttribute("disabled","")
                 }
             },
             errorCallback: function (data) { }

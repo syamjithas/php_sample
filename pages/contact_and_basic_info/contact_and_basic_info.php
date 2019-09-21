@@ -13,7 +13,7 @@
                         <?php include '../../common/header.php'; ?>
                         <div class="container">
                                 <form id="contact_and_basic_info" class="needs-validation" method="get" action="./contact_and_basic_info.php" autocomplete="off">
-                                        <fieldset disabled autocomplete="false">
+                                        <fieldset id="contact_and_basic_info_fieldset" disabled autocomplete="false">
                                                 <div class="form-row">
                                                         <div class="form-group col-md-4">
                                                                 <label for="first_name">First Name</label>
@@ -50,11 +50,11 @@
                                                                 <input type="email" class="form-control" id="email" value="<?php echo $user['email'] ?>" required>
                                                         </div>
                                                         <div class="form-group col-md-4">
-                                                                <label for="primery_number">Primery Number</label>
+                                                                <label for="primery_number">Primery Contact Number</label>
                                                                 <input type="text" maxlength="10" minlength="10" class="form-control" id="primery_number" value="<?php echo $user['primary_contact'] ?>" required>
                                                         </div>
                                                         <div class="form-group col-md-4">
-                                                                <label for="secondary_number">Secondary Number</label>
+                                                                <label for="secondary_number">Secondary Contact Number</label>
                                                                 <input type="text" maxlength="10" minlength="10" class="form-control" id="secondary_number" value="<?php echo $user['secondary_contact'] ?>">
                                                         </div>
                                                 </div>

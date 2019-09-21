@@ -1,8 +1,9 @@
 <?php require '../../config/config.inc.php';
+require '../../config/url.inc.php';
 echo '<script src="' . urlBase() . '/script/side-nav.js"></script>';
 $aadhaar_num = base64_decode($_COOKIE["bas"]);
-setcookie("bas",base64_encode($aadhaar_num), time() + 3600,"/");
-if($aadhaar_num ==""){
+setcookie("bas", base64_encode($aadhaar_num), time() + 3600, "/");
+if ($aadhaar_num == "") {
     header('Location: ' . urlBase() . '/login.php');
 }
 $sql = "SELECT * FROM user_details WHERE aadhaar_num='{$aadhaar_num}'";
@@ -54,18 +55,15 @@ $user_auth  = mysqli_fetch_array($result);
                 <li class="sidebar-dropdown active">
                     <a href="#">
                         <i class="fas fa-id-badge"></i>
-                        <span>Documentation</span>
+                        <span>My Profile</span>
                     </a>
                     <div class="sidebar-submenu" style="display: block;">
                         <ul>
                             <li class="active">
-                                <a href="<?php echo  urlBase() . '/pages/profile/contact_and_basic_info.php' ?> ">Contact and Basic Info</a>
+                                <a href="<?php echo  urlBase() . $contact_and_basic_info ?> ">Contact and Basic Info</a>
                             </li>
                             <li>
-                                <a href="#">Dashboard 2</a>
-                            </li>
-                            <li>
-                                <a href="#">Dashboard 3</a>
+                                <a href="<?php echo  urlBase() . $general_history ?> ">General History</a>
                             </li>
                         </ul>
                     </div>
