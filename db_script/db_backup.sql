@@ -456,6 +456,34 @@ INSERT INTO `aadhaar_dump` (`id`, `aadhaar_num`) VALUES
 	(472, '540922790338');
 /*!40000 ALTER TABLE `aadhaar_dump` ENABLE KEYS */;
 
+-- Dumping structure for table hie_db.general_history
+DROP TABLE IF EXISTS `general_history`;
+CREATE TABLE IF NOT EXISTS `general_history` (
+  `aadhaar_num` varchar(50) NOT NULL,
+  `marital_status` varchar(50) DEFAULT NULL,
+  `no_of_children` varchar(50) DEFAULT NULL,
+  `habits_cigarette` varchar(50) DEFAULT NULL,
+  `tobacco_snuff` varchar(50) DEFAULT NULL,
+  `alcohol` varchar(50) DEFAULT NULL,
+  `diabetes` varchar(50) DEFAULT NULL,
+  `cardiac_diseases` varchar(50) DEFAULT NULL,
+  `endrocrine_others` varchar(50) DEFAULT NULL,
+  `eplepsy` varchar(50) DEFAULT NULL,
+  `cancer` varchar(50) DEFAULT NULL,
+  `medical` text,
+  `surgical` text,
+  `present_medications` text,
+  `drug_allergies` text,
+  PRIMARY KEY (`aadhaar_num`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- Dumping data for table hie_db.general_history: 1 rows
+DELETE FROM `general_history`;
+/*!40000 ALTER TABLE `general_history` DISABLE KEYS */;
+INSERT INTO `general_history` (`aadhaar_num`, `marital_status`, `no_of_children`, `habits_cigarette`, `tobacco_snuff`, `alcohol`, `diabetes`, `cardiac_diseases`, `endrocrine_others`, `eplepsy`, `cancer`, `medical`, `surgical`, `present_medications`, `drug_allergies`) VALUES
+	('821504288186', 'Single', '1', 'Occasionally', 'Occasionally', 'Occasionally', 'No', 'No', 'No', 'No', 'No', 'xczxczxcasdas', 'asdas', 'asd', 'qwe');
+/*!40000 ALTER TABLE `general_history` ENABLE KEYS */;
+
 -- Dumping structure for table hie_db.otp_history
 DROP TABLE IF EXISTS `otp_history`;
 CREATE TABLE IF NOT EXISTS `otp_history` (
@@ -484,7 +512,7 @@ INSERT INTO `otp_history` (`id`, `aadhaar_num`, `otp`, `date_of_generation`) VAL
 	(12, '412620596040', '5798', '2019-07-31 22:48:41'),
 	(13, '349110940796', '1511', '2019-09-05 22:53:12'),
 	(14, '393371115804', '1800', '2019-09-05 23:10:25'),
-	(15, '821504288186', '3691', '2019-09-21 09:49:32');
+	(15, '821504288186', '7665', '2019-09-22 21:27:57');
 /*!40000 ALTER TABLE `otp_history` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.user_auth
@@ -529,7 +557,7 @@ CREATE TABLE IF NOT EXISTS `user_details` (
 DELETE FROM `user_details`;
 /*!40000 ALTER TABLE `user_details` DISABLE KEYS */;
 INSERT INTO `user_details` (`aadhaar_num`, `first_name`, `middle_name`, `last_name`, `dob`, `gender`, `email`, `primary_contact`, `secondary_contact`, `zip`, `building`, `street`, `city`, `state`) VALUES
-	('821504288186', 'karthika', '', 'vijayan', '1999-01-26 00:00:00', 'F', 'karthikavijayan1999@gmail.com', '8078890407', '', '625421', 'Thannimalayile', 'Koothattukulam', 'Ernakulam', 'Nagaland');
+	('821504288186', 'KARTHIKA', '', 'syamjith', '1999-02-06 00:00:00', 'F', 'karthikasyamjith@live.in', '8423948023', '', '644564', 'asdasd', 'asd', 'asdasd', 'Madhya Pradesh');
 /*!40000 ALTER TABLE `user_details` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -52,14 +52,14 @@ $user_auth  = mysqli_fetch_array($result);
 
         <div class="sidebar-menu">
             <ul>
-                <li class="sidebar-dropdown active">
+                <li class="sidebar-dropdown">
                     <a href="#">
                         <i class="fas fa-id-badge"></i>
                         <span>My Profile</span>
                     </a>
-                    <div class="sidebar-submenu" style="display: block;">
+                    <div class="sidebar-submenu">
                         <ul>
-                            <li class="active">
+                            <li>
                                 <a href="<?php echo  urlBase() . $contact_and_basic_info ?> ">Contact and Basic Info</a>
                             </li>
                             <li>
@@ -68,11 +68,21 @@ $user_auth  = mysqli_fetch_array($result);
                         </ul>
                     </div>
                 </li>
-                <li>
+                <li class="sidebar-dropdown">
                     <a href="#">
-                        <i class="fa fa-calendar"></i>
-                        <span>Calendar</span>
+                        <i class="fa fa-medkit"></i>
+                        <span>Status and History</span>
                     </a>
+                    <div class="sidebar-submenu">
+                        <ul>
+                            <li>
+                                <a href="<?php echo  urlBase() . $medical_status ?> ">Medical Status </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo  urlBase() . $medical_history ?> ">Medical History</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <a href="#">
@@ -102,4 +112,7 @@ $user_auth  = mysqli_fetch_array($result);
             <i class="fa fa-power-off"></i>
         </a>
     </div>
+    <script>
+        bindAllScript()
+    </script>
 </nav>

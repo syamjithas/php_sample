@@ -1,3 +1,13 @@
-function signout(){
-    location.assign($hieUtil.basePath+"login.php")
+function signout() {
+    location.assign($hieUtil.basePath + "login.php")
+}
+
+function bindAllScript() {
+    var currentPath = document.location.href.replace("#", '').split('/');
+    currentPath = currentPath[currentPath.length - 1]
+    var selectedLink = document.querySelector('a[href*="' + currentPath + '"]');
+
+    var lis = $(selectedLink).parents('li');
+    lis.addClass('active');
+    $(selectedLink).parents('div.sidebar-submenu')[0].style.display = "block";
 }
