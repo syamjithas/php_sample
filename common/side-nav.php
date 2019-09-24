@@ -49,7 +49,20 @@ $user_auth  = mysqli_fetch_array($result);
 
             </div>
         </div>
-
+        <!-- sidebar-header  -->
+        <div class="sidebar-search">
+            <div>
+                <div class="input-group">
+                    <input type="text" class="form-control search-menu" placeholder="Search...">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- sidebar-search  -->
         <div class="sidebar-menu">
             <ul>
                 <li class="sidebar-dropdown">
@@ -86,8 +99,8 @@ $user_auth  = mysqli_fetch_array($result);
                 </li>
                 <li>
                     <a href="#">
-                        <i class="fa fa-folder"></i>
-                        <span>Examples</span>
+                        <i class="fa fa-thermometer-three-quarters"></i>
+                        <span>Chart</span>
                     </a>
                 </li>
             </ul>
