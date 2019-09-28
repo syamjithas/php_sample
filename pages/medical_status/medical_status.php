@@ -3,6 +3,7 @@
 
 <head>
 	<?php include '../../common/head.php'; ?>
+	<?php include '../../common/filepond.php'; ?>
 </head>
 
 <body>
@@ -229,15 +230,11 @@
 							<label for="drug_allergies Allergies">Drug Allergies</label>
 							<textarea class="form-control" name="drug_allergies" id="drug_allergies" rows="5"><?php echo $general_history['drug_allergies']; ?></textarea>
 						</div>
-						<div class="input-group mb-3">
-							<div class="custom-file">
-								<input type="file" class="custom-file-input" id="inputGroupFile02">
-								<label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
-							</div>
-							<div class="input-group-append">
-								<span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
-							</div>
+						<div class="form-group">
+							<label for="medical">Reports</label>
+							<input type="file" class="filepond" name="filepond" id="inputGroupFile02" multiple data-max-file-size="3MB" data-max-files="3" />
 						</div>
+
 					</fieldset>
 					<div class="form-group">
 						<button type="button" class="btn btn-primary" onclick="edit_form(this)">Edit</button>
@@ -248,7 +245,7 @@
 		</main>
 	</div>
 	<?php include '../../common/footer.php'; ?>
-	<script src="./general_history.js"></script>
+	<script src="./medical_status.js"></script>
 </body>
 
 </html>

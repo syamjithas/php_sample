@@ -7,6 +7,19 @@ var validation = Array.prototype.filter.call(forms, function (form) {
     }, false);
 });
 
+FilePond.registerPlugin(
+    // encodes the file as base64 data
+    FilePondPluginFileEncode,
+    // validates the size of the file
+    FilePondPluginFileValidateSize,
+    // corrects mobile image orientation
+    FilePondPluginImageExifOrientation,
+    // previews dropped images
+    FilePondPluginImagePreview);
+
+// Select the file input and use create() to turn it into a pond
+FilePond.create(document.getElementById('inputGroupFile02'));
+
 function edit_form(ele) {
     var fieldset = document.getElementById("general_history_fieldset");
     fieldset.removeAttribute("disabled");

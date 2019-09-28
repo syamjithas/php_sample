@@ -22,6 +22,15 @@
 			<div class="container">
 				<form id="general_history_from" class="needs-validation" autocomplete="off">
 					<fieldset id="general_history_fieldset" disabled autocomplete="false">
+						<nav aria-label="Page navigation example">
+							<ul class="pagination">
+								<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+								<li class="page-item"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item"><a class="page-link" href="#">Next</a></li>
+							</ul>
+						</nav>
 						<table class="table">
 							<thead>
 								<tr>
