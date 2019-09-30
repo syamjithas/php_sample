@@ -20,6 +20,16 @@ FilePond.registerPlugin(
 // Select the file input and use create() to turn it into a pond
 FilePond.create(document.getElementById('inputGroupFile02'));
 
+FilePond.setOptions({
+    server: {
+        url: 'http://locahost/hie/',
+        process: './process',
+        revert: './revert',
+        restore: './restore/',
+        load: './load/',
+        fetch: './fetch/'
+    }
+});
 function edit_form(ele) {
     var fieldset = document.getElementById("general_history_fieldset");
     fieldset.removeAttribute("disabled");
