@@ -7,29 +7,51 @@ var validation = Array.prototype.filter.call(forms, function (form) {
     }, false);
 });
 
-FilePond.registerPlugin(
-    // encodes the file as base64 data
-    FilePondPluginFileEncode,
-    // validates the size of the file
-    FilePondPluginFileValidateSize,
-    // corrects mobile image orientation
-    FilePondPluginImageExifOrientation,
-    // previews dropped images
-    FilePondPluginImagePreview);
+$(function () {
 
-// Select the file input and use create() to turn it into a pond
-FilePond.create(document.getElementById('inputGroupFile02'));
+    $.fn.filepond.registerPlugin(
+        // encodes the file as base64 data
+        FilePondPluginFileEncode,
+        // validates the size of the file
+        FilePondPluginFileValidateSize,
+        // corrects mobile image orientation
+        FilePondPluginImageExifOrientation,
+        // previews dropped images
+        FilePondPluginImagePreview);
 
-FilePond.setOptions({
-    server: {
-        url: 'http://locahost/hie/',
-        process: './process',
-        revert: './revert',
-        restore: './restore/',
-        load: './load/',
-        fetch: './fetch/'
-    }
+    $.fn.filepond.setOptions({
+        dropOnPage: true,
+        dropOnElement: true
+    });
 });
+
+
+
+$(function () {
+
+    // Turn input element into a pond
+    $('#report-file-upload').filepond();
+
+    // Turn input element into a pond with configuration options
+    $('#report-file-upload').filepond({
+        allowMultiple: true
+    });
+    // Listen for addfile event
+    $('#report-file-upload').on('FilePond:addfile', function (e,f) {
+        console.log('file added event', e,f);
+    });
+
+    // Manually add a file using the addfile method
+    $('#report-file-upload').filepond('addFile', 'index.html').then(function (file) {
+        console.log('file added', file);
+    });
+
+  
+
+});
+
+
+
 function edit_form(ele) {
     var fieldset = document.getElementById("general_history_fieldset");
     fieldset.removeAttribute("disabled");
@@ -38,7 +60,7 @@ function edit_form(ele) {
 }
 
 function save_form(ele) {
-    var form = document.getElementById('general_history_from');
+    var form = document.getElementById('medical_status_from');
     if (form.checkValidity()) {
         var request = $hieUtil.serializeArray(form);
         $hieUtil.xhr({
@@ -47,7 +69,7 @@ function save_form(ele) {
             request: JSON.stringify(request),
             successCallback: function (data) {
                 if (data.isValid) {
-                    var fieldset = document.getElementById("general_history_fieldset");
+                    var fieldset = document.getElementById("medical_status_fieldset");
                     fieldset.setAttribute("disabled", "");
                     ele.setAttribute("disabled", "");
                     ele.previousElementSibling.removeAttribute("disabled");

@@ -229,9 +229,9 @@
 							<label for="drug_allergies Allergies">Drug Allergies</label>
 							<textarea class="form-control" name="drug_allergies" id="drug_allergies" rows="5"><?php echo $medical_status['drug_allergies']; ?></textarea>
 						</div>
-						<div class="form-group">
+						<div class="form-group col-md-4">
 							<label for="medical">Reports</label>
-							<input type="file" class="filepond" name="filepond" id="inputGroupFile02" multiple data-max-file-size="3MB" data-max-files="3" />
+							<input type="file" class="filepond" name="filepond" id="report-file-upload" multiple data-max-file-size="3MB" data-max-files="5" />
 						</div>
 
 					</fieldset>
