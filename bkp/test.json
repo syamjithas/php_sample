@@ -1,0 +1,20 @@
+{
+    "height",
+    "weight",
+    "pulse",
+    "bp_mm",
+    "bp_hg",
+    "habits_cigarette": "Occasionally",
+    "tobacco_snuff": "Occasionally",
+    "alcohol": "Occasionally",
+    "diabetes": "No",
+    "cardiac_diseases": "No",
+    "endrocrine_others": "No",
+    "eplepsy": "No",
+    "cancer": "No",
+    "medical": "",
+    "surgical": "",
+    "present_medications": "",
+    "drug_allergies": "",
+    "filepond": ""
+}

@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
       $sql = "INSERT INTO hie_db.general_history (aadhaar_num, marital_status, no_of_children,habits_cigarette,
        tobacco_snuff, alcohol,diabetes, cardiac_diseases,  endrocrine_others, eplepsy,
-        cancer,medical, surgical, present_medications, drug_allergies) VALUES ( '{$aadhaar_num}', '{$marital_status}',
-         '{$no_of_children}','{$habits_cigarette}', '{$tobacco_snuff}', '{$alcohol}','{$diabetes}', '{$cardiac_diseases}',
-          '{$endrocrine_others}','{$eplepsy}', '{$cancer}','{$medical}', '{$surgical}', '{$present_medications}','{$drug_allergies}')";
+        cancer,medical, surgical, present_medications, drug_allergies) VALUES ( '{$data['aadhaar_num']}', '{$data['marital_status']}',
+         '{$data['no_of_children']}','{$data['habits_cigarette']}', '{$data['tobacco_snuff']}', '{$data['alcohol']}','{$data['diabetes']}', '{$data['cardiac_diseases']}',
+          '{$data['endrocrine_others']}','{$data['eplepsy']}', '{$data['cancer']}','{$data['medical']}', '{$data['surgical']}', '{$data['present_medications']}','{$data['drug_allergies']}')";
     }
 
     $result = mysqli_query($conn, $sql);

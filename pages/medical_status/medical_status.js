@@ -53,7 +53,7 @@ $(function () {
 
 
 function edit_form(ele) {
-    var fieldset = document.getElementById("general_history_fieldset");
+    var fieldset = document.getElementById("medical_status_fieldset");
     fieldset.removeAttribute("disabled");
     ele.setAttribute("disabled", "");
     ele.nextElementSibling.removeAttribute("disabled");
@@ -65,7 +65,7 @@ function save_form(ele) {
         var request = $hieUtil.serializeArray(form);
         $hieUtil.xhr({
             requestMethod: "post",
-            url: $hieUtil.getBaseUrl() + $general_history_save,
+            url: $hieUtil.getBaseUrl() + $medical_status_save,
             request: JSON.stringify(request),
             successCallback: function (data) {
                 if (data.isValid) {
