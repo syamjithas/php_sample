@@ -100,7 +100,7 @@ $user_auth  = mysqli_fetch_array($result);
                 <li>
                     <a href="#">
                         <i class="fa fa-thermometer-three-quarters"></i>
-                        <span>Chart</span>
+                        <span>Dashboard</span>
                     </a>
                 </li>
             </ul>

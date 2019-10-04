@@ -1,12 +1,13 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               5.1.33-community-log - MySQL Community Server (GPL)
+-- Server version:               5.5.8-log - MySQL Community Server (GPL)
 -- Server OS:                    Win32
 -- HeidiSQL Version:             10.2.0.5599
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
@@ -25,7 +26,6 @@ CREATE TABLE IF NOT EXISTS `aadhaar_dump` (
 ) ENGINE=MyISAM AUTO_INCREMENT=473 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table hie_db.aadhaar_dump: 426 rows
-DELETE FROM `aadhaar_dump`;
 /*!40000 ALTER TABLE `aadhaar_dump` DISABLE KEYS */;
 INSERT INTO `aadhaar_dump` (`id`, `aadhaar_num`) VALUES
 	(1, '111122223333'),
@@ -478,18 +478,18 @@ CREATE TABLE IF NOT EXISTS `general_history` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Dumping data for table hie_db.general_history: 1 rows
-DELETE FROM `general_history`;
 /*!40000 ALTER TABLE `general_history` DISABLE KEYS */;
 INSERT INTO `general_history` (`aadhaar_num`, `marital_status`, `no_of_children`, `habits_cigarette`, `tobacco_snuff`, `alcohol`, `diabetes`, `cardiac_diseases`, `endrocrine_others`, `eplepsy`, `cancer`, `medical`, `surgical`, `present_medications`, `drug_allergies`) VALUES
-	('821504288186', '', '', 'Occasionally', 'Occasionally', 'Occasionally', 'No', 'No', 'No', 'No', 'No', '', '', '', '');
+	('821504288186', 'Single', '0', 'Occasionally', 'Occasionally', 'Occasionally', 'No', 'No', 'No', 'No', 'No', 'Saint Francis Receiving the Stigmata is the subject of two unsigned paintings, nearly identical except for their size, that were both completed around 1430. Art historians usually attribute them to the Flemish artist Jan van Eyck. The larger panel measures 29.3 cm Ã— 33.4 cm (11.5 in Ã— 13.1 in) and is in the Sabauda Gallery in Turin, Italy; the smaller panel is 12.7 cm Ã— 14.6 cm (5.0 in Ã— 5.7 in) and is in the Philadelphia Museum of Art. The paintings show Saint Francis of Assisi kneeling in front of detailed rock formations as he receives the stigmata of the crucified Christ on the palms of his hands and soles of his feet. A panoramic landscape seems to relegate the figures in the foreground to secondary importance. The Philadelphia wood panel comes from the same tree as that of two paintings definitively attributed to van Eyck, and the Italian panel has underdrawings of a quality that probably could only have come from him. Today the consensus is that both were painted by the same hand', 'Life is a characteristic that distinguishes physical entities that have biological processes, such as signaling and self-sustaining processes, from those that do not, either because such functions have ceased (they have died), or because they never had such functions and are classified as inanimate. Various forms of life exist, such as plants, animals, fungi, protists, archaea, and bacteria. The criteria can at times be ambiguous and may or may not define viruses, viroids, or potential synthetic life as "living". Biology is the science concerned with the study of life.\r\n\r\nThere is currently no consensus regarding the definition of life. One popular definition is that organisms are open systems that maintain homeostasis, are composed of cells, have a life cycle, undergo metabolism, can grow, adapt to their environment, respond to stimuli, reproduce and evolve. However, several other definitions have been proposed, and there are some borderline cases of life, such as viruses or viroids.\r\n\r\nAbiogenesis is the natural process of life arising from non-living matter, such as simple organic compounds. The prevailing scientific hypothesis is that the transition from non-living to living entities was not a single event, but a gradual process of increasing complexity. Life on Earth first appeared as early as 4.28 billion years ago, soon after ocean formation 4.41 billion years ago, and not long after the formation of the Earth 4.54 billion years ago.[1][2][3][4] The earliest known life forms are microfossils of bacteria.[5][6] Researchers generally think that current life on Earth descends from an RNA world,[7] although RNA-based life may not have been the first life to have existed.[8][9] The classic 1952 Millerâ€“Urey experiment and similar research demonstrated that most amino acids, the chemical constituents of the proteins used in all living organisms, can be synthesized from inorganic compounds under conditions intended to replicate those of the early Earth. Complex organic molecules occur in the Solar System and in interstellar space, and these molecules may have provided starting material for the development of life on Earth.[10][11][12][13]\r\n\r\nSince its primordial beginnings, life on Earth has changed its environment on a geologic time scale, but it has also adapted to survive in most ecosystems and conditions. Some microorganisms, called extremophiles, thrive in physically or geochemically extreme environments that are detrimental to most other life on Earth. The cell is considered the structural and functional unit of life.[14] There are two kinds of cells, prokaryotic and eukaryotic, both of which consist of cytoplasm enclosed within a membrane and contain many biomolecules such as proteins and nucleic acids. Cells reproduce through a process of cell division, in which the parent cell divides into two or more daughter cells.', 'Life is a characteristic that distinguishes physical entities that have biological processes, such as signaling and self-sustaining processes, from those that do not, either because such functions have ceased (they have died), or because they never had such functions and are classified as inanimate. Various forms of life exist, such as plants, animals, fungi, protists, archaea, and bacteria. The criteria can at times be ambiguous and may or may not define viruses, viroids, or potential synthetic life as "living". Biology is the science concerned with the study of life.\r\n\r\nThere is currently no consensus regarding the definition of life. One popular definition is that organisms are open systems that maintain homeostasis, are composed of cells, have a life cycle, undergo metabolism, can grow, adapt to their environment, respond to stimuli, reproduce and evolve. However, several other definitions have been proposed, and there are some borderline cases of life, such as viruses or viroids.\r\n\r\nAbiogenesis is the natural process of life arising from non-living matter, such as simple organic compounds. The prevailing scientific hypothesis is that the transition from non-living to living entities was not a single event, but a gradual process of increasing complexity. Life on Earth first appeared as early as 4.28 billion years ago, soon after ocean formation 4.41 billion years ago, and not long after the formation of the Earth 4.54 billion years ago.[1][2][3][4] The earliest known life forms are microfossils of bacteria.[5][6] Researchers generally think that current life on Earth descends from an RNA world,[7] although RNA-based life may not have been the first life to have existed.[8][9] The classic 1952 Millerâ€“Urey experiment and similar research demonstrated that most amino acids, the chemical constituents of the proteins used in all living organisms, can be synthesized from inorganic compounds under conditions intended to replicate those of the early Earth. Complex organic molecules occur in the Solar System and in interstellar space, and these molecules may have provided starting material for the development of life on Earth.[10][11][12][13]\r\n\r\nSince its primordial beginnings, life on Earth has changed its environment on a geologic time scale, but it has also adapted to survive in most ecosystems and conditions. Some microorganisms, called extremophiles, thrive in physically or geochemically extreme environments that are detrimental to most other life on Earth. The cell is considered the structural and functional unit of life.[14] There are two kinds of cells, prokaryotic and eukaryotic, both of which consist of cytoplasm enclosed within a membrane and contain many biomolecules such as proteins and nucleic acids. Cells reproduce through a process of cell division, in which the parent cell divides into two or more daughter cells.', 'Life is a characteristic that distinguishes physical entities that have biological processes, such as signaling and self-sustaining processes, from those that do not, either because such functions have ceased (they have died), or because they never had such functions and are classified as inanimate. Various forms of life exist, such as plants, animals, fungi, protists, archaea, and bacteria. The criteria can at times be ambiguous and may or may not define viruses, viroids, or potential synthetic life as "living". Biology is the science concerned with the study of life.\r\n\r\nThere is currently no consensus regarding the definition of life. One popular definition is that organisms are open systems that maintain homeostasis, are composed of cells, have a life cycle, undergo metabolism, can grow, adapt to their environment, respond to stimuli, reproduce and evolve. However, several other definitions have been proposed, and there are some borderline cases of life, such as viruses or viroids.\r\n\r\nAbiogenesis is the natural process of life arising from non-living matter, such as simple organic compounds. The prevailing scientific hypothesis is that the transition from non-living to living entities was not a single event, but a gradual process of increasing complexity. Life on Earth first appeared as early as 4.28 billion years ago, soon after ocean formation 4.41 billion years ago, and not long after the formation of the Earth 4.54 billion years ago.[1][2][3][4] The earliest known life forms are microfossils of bacteria.[5][6] Researchers generally think that current life on Earth descends from an RNA world,[7] although RNA-based life may not have been the first life to have existed.[8][9] The classic 1952 Millerâ€“Urey experiment and similar research demonstrated that most amino acids, the chemical constituents of the proteins used in all living organisms, can be synthesized from inorganic compounds under conditions intended to replicate those of the early Earth. Complex organic molecules occur in the Solar System and in interstellar space, and these molecules may have provided starting material for the development of life on Earth.[10][11][12][13]\r\n\r\nSince its primordial beginnings, life on Earth has changed its environment on a geologic time scale, but it has also adapted to survive in most ecosystems and conditions. Some microorganisms, called extremophiles, thrive in physically or geochemically extreme environments that are detrimental to most other life on Earth. The cell is considered the structural and functional unit of life.[14] There are two kinds of cells, prokaryotic and eukaryotic, both of which consist of cytoplasm enclosed within a membrane and contain many biomolecules such as proteins and nucleic acids. Cells reproduce through a process of cell division, in which the parent cell divides into two or more daughter cells.');
 /*!40000 ALTER TABLE `general_history` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.medical_status
 DROP TABLE IF EXISTS `medical_status`;
 CREATE TABLE IF NOT EXISTS `medical_status` (
+  `medical_status_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `aadhaar_num` varchar(50) NOT NULL,
-  `height` varchar(50) DEFAULT NULL,
-  `weight` varchar(50) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `weight` int(11) DEFAULT NULL,
   `pulse` int(11) DEFAULT NULL,
   `bp_mm` int(11) DEFAULT NULL,
   `bp_hg` int(11) DEFAULT NULL,
@@ -505,14 +505,18 @@ CREATE TABLE IF NOT EXISTS `medical_status` (
   `surgical` longtext,
   `present_medications` longtext,
   `drug_allergies` longtext,
-  PRIMARY KEY (`aadhaar_num`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `created_date` datetime DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
+  PRIMARY KEY (`medical_status_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table hie_db.medical_status: 1 rows
-DELETE FROM `medical_status`;
 /*!40000 ALTER TABLE `medical_status` DISABLE KEYS */;
-INSERT INTO `medical_status` (`aadhaar_num`, `height`, `weight`, `pulse`, `bp_mm`, `bp_hg`, `habits_cigarette`, `tobacco_snuff`, `alcohol`, `diabetes`, `cardiac_diseases`, `endrocrine_others`, `eplepsy`, `cancer`, `medical`, `surgical`, `present_medications`, `drug_allergies`) VALUES
-	('821504288186', '0', '0', 0, 333, 333, 'Occasionally', 'Occasionally', 'Occasionally', 'No', 'No', 'No', 'No', 'No', 'asd', 'sda', 'asd', 'sd');
+INSERT INTO `medical_status` (`medical_status_id`, `aadhaar_num`, `height`, `weight`, `pulse`, `bp_mm`, `bp_hg`, `habits_cigarette`, `tobacco_snuff`, `alcohol`, `diabetes`, `cardiac_diseases`, `endrocrine_others`, `eplepsy`, `cancer`, `medical`, `surgical`, `present_medications`, `drug_allergies`, `created_date`, `updated_date`, `status`, `latitude`, `longitude`) VALUES
+	(1, '821504288186', 0, 0, 0, 100, 100, 'Occasionally', 'Occasionally', 'Occasionally', 'No', 'No', 'No', 'No', 'No', 'asd\r\nasd\r\nas\r\nda\r\nsd\r\nasd\r\nasd\r\nas\r\ndas\r\nd\r\nasd\r\nas\r\ndas\r\nd\r\nas\r\ndas\r\ndasd', 'sda', 'asd', 'sd', NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `medical_status` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.otp_history
@@ -526,7 +530,6 @@ CREATE TABLE IF NOT EXISTS `otp_history` (
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1 COMMENT='This table is using for store generate and store dummy otp ';
 
 -- Dumping data for table hie_db.otp_history: 15 rows
-DELETE FROM `otp_history`;
 /*!40000 ALTER TABLE `otp_history` DISABLE KEYS */;
 INSERT INTO `otp_history` (`id`, `aadhaar_num`, `otp`, `date_of_generation`) VALUES
 	(1, '111122223333', '2851', '2019-07-31 22:48:21'),
@@ -543,7 +546,7 @@ INSERT INTO `otp_history` (`id`, `aadhaar_num`, `otp`, `date_of_generation`) VAL
 	(12, '412620596040', '5798', '2019-07-31 22:48:41'),
 	(13, '349110940796', '1511', '2019-09-05 22:53:12'),
 	(14, '393371115804', '1800', '2019-09-05 23:10:25'),
-	(15, '821504288186', '9379', '2019-10-04 11:33:27');
+	(15, '821504288186', '7970', '2019-10-04 18:47:50');
 /*!40000 ALTER TABLE `otp_history` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.user_auth
@@ -558,7 +561,6 @@ CREATE TABLE IF NOT EXISTS `user_auth` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Dumping data for table hie_db.user_auth: 1 rows
-DELETE FROM `user_auth`;
 /*!40000 ALTER TABLE `user_auth` DISABLE KEYS */;
 INSERT INTO `user_auth` (`aadhaar_num`, `privilege`, `role`, `session_start`, `session_id`) VALUES
 	('821504288186', 1, 'administrator', NULL, NULL);
@@ -585,10 +587,9 @@ CREATE TABLE IF NOT EXISTS `user_details` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- Dumping data for table hie_db.user_details: 1 rows
-DELETE FROM `user_details`;
 /*!40000 ALTER TABLE `user_details` DISABLE KEYS */;
 INSERT INTO `user_details` (`aadhaar_num`, `first_name`, `middle_name`, `last_name`, `dob`, `gender`, `email`, `primary_contact`, `secondary_contact`, `zip`, `building`, `street`, `city`, `state`) VALUES
-	('821504288186', 'KARTHIKA', '', 'syamjith', '1999-02-06 00:00:00', 'F', 'karthikasyamjith@live.in', '8423948023', '', '644564', 'asdasd', 'asd', 'asdasd', 'Madhya Pradesh');
+	('821504288186', 'KARTHIKA', '', 'syamjith', '1999-02-06 00:00:00', 'F', 'karthikasyamjith@live.in', '8423948023', '', '644564', 'asdasd', 'asd', 'asdasd', 'Uttar Pradesh');
 /*!40000 ALTER TABLE `user_details` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

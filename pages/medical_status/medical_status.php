@@ -35,7 +35,7 @@
 										?>
 									</select>
 									<div class="input-group-append">
-										<span class="input-group-text" >cm</span>
+										<span class="input-group-text">cm</span>
 									</div>
 								</div>
 							</div>
@@ -52,7 +52,7 @@
 										?>
 									</select>
 									<div class="input-group-append">
-										<span class="input-group-text" >kg</span>
+										<span class="input-group-text">kg</span>
 									</div>
 								</div>
 							</div>
@@ -68,18 +68,18 @@
 										?>
 									</select>
 									<div class="input-group-append">
-										<span class="input-group-text" >/Minutes</span>
+										<span class="input-group-text">/Minutes</span>
 									</div>
 								</div>
 							</div>
 							<div class="form-group col-md-4">
 								<label for="marital_status">B.P</label>
 								<div class="input-group">
-									<input type="text" aria-label="bp_mm" name="bp_mm" id="bp_mm" class="form-control">
+									<input type="text" aria-label="bp_mm" name="bp_mm" id="bp_mm" value="<?php echo $medical_status['bp_mm']; ?>" class="form-control">
 									<div class="input-group-append">
 										<span class="input-group-text">/</span>
 									</div>
-									<input type="text"  aria-label="bp_hg" name="bp_hg" id="bp_hg" class="form-control">
+									<input type="text" aria-label="bp_hg" name="bp_hg" id="bp_hg" value="<?php echo $medical_status['bp_hg']; ?>" class="form-control">
 									<div class="input-group-append">
 										<span class="input-group-text">mm/Hg</span>
 									</div>
@@ -214,11 +214,11 @@
 						</div>
 
 						<div class="form-group">
-							<label for="medical">Medical</label>
+							<label for="medical">Present  Medical</label>
 							<textarea class="form-control" name="medical" id="medical" rows="5"><?php echo $medical_status['medical']; ?></textarea>
 						</div>
 						<div class="form-group">
-							<label for="surgical">Surgical</label>
+							<label for="surgical">Present Surgical</label>
 							<textarea class="form-control" name="surgical" id="surgical" rows="5"><?php echo $medical_status['surgical']; ?></textarea>
 						</div>
 						<div class="form-group">
@@ -226,17 +226,17 @@
 							<textarea class="form-control" name="present_medications" id="present_medications" rows="5"><?php echo $medical_status['present_medications']; ?></textarea>
 						</div>
 						<div class="form-group">
-							<label for="drug_allergies Allergies">Drug Allergies</label>
+							<label for="drug_allergies Allergies">Present Drug Allergies</label>
 							<textarea class="form-control" name="drug_allergies" id="drug_allergies" rows="5"><?php echo $medical_status['drug_allergies']; ?></textarea>
 						</div>
-						<div class="form-group col-md-4">
+						<div class="form-group">
 							<label for="medical">Reports</label>
 							<input type="file" class="filepond" name="filepond" id="report-file-upload" multiple data-max-file-size="3MB" data-max-files="5" />
 						</div>
 
 					</fieldset>
 					<div class="form-group">
-						<button type="button" class="btn btn-primary" onclick="edit_form(this)">Edit</button>
+						<button type="button" class="btn btn-primary" onclick="edit_form(this)">Save as Draft</button>
 						<button type="submit" class="btn btn-success" onclick="save_form(this)">Save</button>
 					</div>
 				</form>
