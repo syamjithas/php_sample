@@ -481,8 +481,39 @@ CREATE TABLE IF NOT EXISTS `general_history` (
 DELETE FROM `general_history`;
 /*!40000 ALTER TABLE `general_history` DISABLE KEYS */;
 INSERT INTO `general_history` (`aadhaar_num`, `marital_status`, `no_of_children`, `habits_cigarette`, `tobacco_snuff`, `alcohol`, `diabetes`, `cardiac_diseases`, `endrocrine_others`, `eplepsy`, `cancer`, `medical`, `surgical`, `present_medications`, `drug_allergies`) VALUES
-	('821504288186', 'Single', '1', 'Occasionally', 'Occasionally', 'Occasionally', 'No', 'No', 'No', 'No', 'No', 'xczxczxcasdas', 'asdas', 'asd', 'qwe');
+	('821504288186', '', '', 'Occasionally', 'Occasionally', 'Occasionally', 'No', 'No', 'No', 'No', 'No', '', '', '', '');
 /*!40000 ALTER TABLE `general_history` ENABLE KEYS */;
+
+-- Dumping structure for table hie_db.medical_status
+DROP TABLE IF EXISTS `medical_status`;
+CREATE TABLE IF NOT EXISTS `medical_status` (
+  `aadhaar_num` varchar(50) NOT NULL,
+  `height` varchar(50) DEFAULT NULL,
+  `weight` varchar(50) DEFAULT NULL,
+  `pulse` int(11) DEFAULT NULL,
+  `bp_mm` int(11) DEFAULT NULL,
+  `bp_hg` int(11) DEFAULT NULL,
+  `habits_cigarette` varchar(50) DEFAULT NULL,
+  `tobacco_snuff` varchar(50) DEFAULT NULL,
+  `alcohol` varchar(50) DEFAULT NULL,
+  `diabetes` varchar(50) DEFAULT NULL,
+  `cardiac_diseases` varchar(50) DEFAULT NULL,
+  `endrocrine_others` varchar(50) DEFAULT NULL,
+  `eplepsy` varchar(50) DEFAULT NULL,
+  `cancer` varchar(50) DEFAULT NULL,
+  `medical` longtext,
+  `surgical` longtext,
+  `present_medications` longtext,
+  `drug_allergies` longtext,
+  PRIMARY KEY (`aadhaar_num`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- Dumping data for table hie_db.medical_status: 1 rows
+DELETE FROM `medical_status`;
+/*!40000 ALTER TABLE `medical_status` DISABLE KEYS */;
+INSERT INTO `medical_status` (`aadhaar_num`, `height`, `weight`, `pulse`, `bp_mm`, `bp_hg`, `habits_cigarette`, `tobacco_snuff`, `alcohol`, `diabetes`, `cardiac_diseases`, `endrocrine_others`, `eplepsy`, `cancer`, `medical`, `surgical`, `present_medications`, `drug_allergies`) VALUES
+	('821504288186', '0', '0', 0, 333, 333, 'Occasionally', 'Occasionally', 'Occasionally', 'No', 'No', 'No', 'No', 'No', 'asd', 'sda', 'asd', 'sd');
+/*!40000 ALTER TABLE `medical_status` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.otp_history
 DROP TABLE IF EXISTS `otp_history`;
@@ -512,7 +543,7 @@ INSERT INTO `otp_history` (`id`, `aadhaar_num`, `otp`, `date_of_generation`) VAL
 	(12, '412620596040', '5798', '2019-07-31 22:48:41'),
 	(13, '349110940796', '1511', '2019-09-05 22:53:12'),
 	(14, '393371115804', '1800', '2019-09-05 23:10:25'),
-	(15, '821504288186', '7665', '2019-09-22 21:27:57');
+	(15, '821504288186', '9379', '2019-10-04 11:33:27');
 /*!40000 ALTER TABLE `otp_history` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.user_auth
