@@ -86,7 +86,23 @@
 								</div>
 							</div>
 						</div>
-
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<label for="marital_status">Marital Status</label>
+								<select name="marital_status" id="marital_status" class="form-control" required>
+									<option <?php if ($medical_status['marital_status'] == '') echo "selected"; ?>value="">Choose...</option>
+									<option <?php if ($medical_status['marital_status'] == 'Single') echo "selected"; ?> value="Single">Single</option>
+									<option <?php if ($medical_status['marital_status'] == 'Married') echo "selected"; ?> value="Married">Married</option>
+									<option <?php if ($medical_status['marital_status'] == 'Widowed') echo "selected"; ?> value="Widowed">Widowed</option>
+									<option <?php if ($medical_status['marital_status'] == 'Separated') echo "selected"; ?> value="Separated">Separated</option>
+									<option <?php if ($medical_status['marital_status'] == 'Divorced') echo "selected"; ?> value="Divorced">Divorced</option>
+								</select>
+							</div>
+							<div class="form-group col-md-2">
+								<label for="no_of_children">No of Children</label>
+								<input type="number" class="form-control" name="no_of_children" id="no_of_children" placeholder="" value="<?php echo $medical_status['no_of_children'] ?>">
+							</div>
+						</div>
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label>Cigarette</label>
