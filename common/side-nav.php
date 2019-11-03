@@ -94,6 +94,9 @@ $user_auth  = mysqli_fetch_array($result);
                             <li>
                                 <a href="<?php echo  urlBase() . $medical_history ?> ">Medical History</a>
                             </li>
+                            <li>
+                                <a href="<?php echo  urlBase() . $death_report ?> ">Death Report</a>
+                            </li>
                         </ul>
                     </div>
                 </li>

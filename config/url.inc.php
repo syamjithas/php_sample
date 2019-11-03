@@ -8,5 +8,6 @@
   $medical_status_save ="/pages/medical_status/medical_status_save.php";
 
   $medical_history ="/pages/medical_history/medical_history.php";
+  $death_report ="/pages/death_report/death_report.php";
 
   
