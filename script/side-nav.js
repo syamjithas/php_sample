@@ -3,7 +3,7 @@ function signout() {
 }
 
 function bindAllScript() {
-    var currentPath = document.location.href.replace("#", '').split('/');
+    var currentPath = location.pathname.split('/');
     currentPath = currentPath[currentPath.length - 1]
     var selectedLink = document.querySelector('a[href*="' + currentPath + '"]');
 

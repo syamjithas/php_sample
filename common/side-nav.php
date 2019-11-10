@@ -89,7 +89,7 @@ $user_auth  = mysqli_fetch_array($result);
                     <div class="sidebar-submenu">
                         <ul>
                             <li>
-                                <a href="<?php echo  urlBase() . $medical_status ?> ">Medical Status </a>
+                                <a href="<?php echo  urlBase() . $medical_status ?> ">Update Medical Status </a>
                             </li>
                             <li>
                                 <a href="<?php echo  urlBase() . $medical_history ?> ">Medical History</a>

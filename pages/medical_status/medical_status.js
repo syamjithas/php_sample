@@ -42,9 +42,9 @@ $(function () {
     });
 
     // Manually add a file using the addfile method
-    $('#report-file-upload').filepond('addFile', 'index.html').then(function (file) {
-        console.log('file added', file);
-    });
+    // $('#report-file-upload').filepond('addFile', 'index.html').then(function (file) {
+    //     console.log('file added', file);
+    // });
 
   
 
@@ -58,11 +58,9 @@ var options = {
   
   function success(pos) {
     var crd = pos.coords;
-  
-    console.log('Your current position is:');
-    console.log('Latitude : ${crd.latitude}');
-    console.log('Longitude: ${crd.longitude}');
-    console.log('More or less ${crd.accuracy} meters.');
+  document.getElementById("latitude").value = pos.coords.latitude;
+  document.getElementById("longitude").value = pos.coords.longitude;
+
   }
   
   function error(err) {

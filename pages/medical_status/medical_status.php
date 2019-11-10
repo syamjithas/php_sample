@@ -215,7 +215,7 @@
 								</div>
 							</div>
 							<div class="form-group col-md-3">
-								<label for="alcohol">Cancer</label>
+								<label>Cancer</label>
 								<div class="form-group">
 									<div class="form-check form-check-inline">
 										<input class="form-check-input" <?php echo $medical_status['cancer'] ?  "checked" : ""; ?> type="radio" name="cancer" id="cancer1" value="Yes">
@@ -230,7 +230,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="medical">Present  Medical</label>
+							<label for="medical">Present Medical</label>
 							<textarea class="form-control" name="medical" id="medical" rows="5"><?php echo $medical_status['medical']; ?></textarea>
 						</div>
 						<div class="form-group">
@@ -245,10 +245,25 @@
 							<label for="drug_allergies Allergies">Present Drug Allergies</label>
 							<textarea class="form-control" name="drug_allergies" id="drug_allergies" rows="5"><?php echo $medical_status['drug_allergies']; ?></textarea>
 						</div>
+						<div class="form-group col-md-3">
+							<label for="alive">Alive</label>
+							<div class="form-group">
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" <?php echo $medical_status['alive'] ?  "checked" : "";  ?> type="radio" name="alive" id="alive1" value="Yes">
+									<label class="form-check-label" for="alive1">Yes</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" <?php echo $medical_status['alive'] ?  "checked" : "";  ?> type="radio" name="alive" id="alive2" value="No">
+									<label class="form-check-label" for="alive2">No</label>
+								</div>
+							</div>
+						</div>
 						<div class="form-group">
 							<label for="medical">Reports</label>
 							<input type="file" class="filepond" name="filepond" id="report-file-upload" multiple data-max-file-size="3MB" data-max-files="5" />
 						</div>
+						<input type="hidden" name="latitude" id="latitude">
+						<input type="hidden" name="longitude" id="longitude">
 
 					</fieldset>
 					<div class="form-group">
