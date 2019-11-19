@@ -15,8 +15,14 @@
 			$aadhaar_num = base64_decode($_COOKIE["bas"]);
 			$sql = "SELECT * FROM general_history WHERE aadhaar_num='{$aadhaar_num}'";
 			$result = mysqli_query($conn, $sql);
-			if (mysqli_num_rows($result) > 0) {
-				$general_history = mysqli_fetch_array($result);
+			if (mysqli_num_rows($result) == 0) {
+				$sql = "INSERT INTO general_history (aadhaar_num) VALUES ('{$aadhaar_num}')";
+				mysqli_query($conn, $sql);
+				$sql = "SELECT * FROM general_history WHERE aadhaar_num='{$aadhaar_num}'";
+				$result = mysqli_query($conn, $sql);
+				$general_history  = mysqli_fetch_array($result);
+			} else {
+				$general_history  = mysqli_fetch_array($result);
 			}
 			?>
 			<div class="container">
@@ -25,7 +31,7 @@
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label for="marital_status">Marital Status</label>
-								<select name="marital_status" id="marital_status" class="form-control" required>
+								<select name="marital_status" disabled id="marital_status" class="form-control" required>
 									<option <?php if ($general_history['marital_status'] == '') echo "selected"; ?>value="">Choose...</option>
 									<option <?php if ($general_history['marital_status'] == 'Single') echo "selected"; ?> value="Single">Single</option>
 									<option <?php if ($general_history['marital_status'] == 'Married') echo "selected"; ?> value="Married">Married</option>
@@ -36,7 +42,7 @@
 							</div>
 							<div class="form-group col-md-2">
 								<label for="no_of_children">No of Children</label>
-								<input type="number" class="form-control" name="no_of_children" id="no_of_children" placeholder="" value="<?php echo $general_history['no_of_children'] ?>">
+								<input type="number" disabled class="form-control" name="no_of_children" id="no_of_children" placeholder="" value="<?php echo $general_history['no_of_children'] ?>">
 							</div>
 						</div>
 
@@ -106,10 +112,10 @@
 							</div>
 						</div>
 					</fieldset>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<button type="button" class="btn btn-primary" onclick="edit_form(this)">Edit</button>
 						<button type="submit" class="btn btn-success" onclick="save_form(this)">Save</button>
-					</div>
+					</div> -->
 				</form>
 			</div>
 		</main>

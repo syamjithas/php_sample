@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$now = time();
 			$target = strtotime($latest['updated_date']);
 			$diff = $now - $target;
-			if ($diff > 0) {
+			if ($diff > 3600) {
 				$updatethesame = false;
 			}
 		}

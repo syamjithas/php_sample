@@ -8,10 +8,32 @@ if ($aadhaar_num == "") {
 }
 $sql = "SELECT * FROM user_details WHERE aadhaar_num='{$aadhaar_num}'";
 $result = mysqli_query($conn, $sql);
-$user = mysqli_fetch_array($result);
+if (mysqli_num_rows($result) == 0) {
+    $sql = "INSERT INTO user_details (aadhaar_num) VALUES ('{$aadhaar_num}');";
+    mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM user_details WHERE aadhaar_num='{$aadhaar_num}'";
+    $result = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_array($result);
+} else {
+    $user = mysqli_fetch_array($result);
+}
+
+
 $sql = "SELECT * FROM user_auth WHERE aadhaar_num='{$aadhaar_num}'";
 $result = mysqli_query($conn, $sql);
-$user_auth  = mysqli_fetch_array($result);
+
+if (mysqli_num_rows($result) == 0) {
+    $sql = "INSERT INTO user_auth (aadhaar_num, 
+    privilege, role, session_start, session_id) 
+    VALUES ('{$aadhaar_num}', 0, 'basic_user', NULL, NULL)";
+    mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM user_auth WHERE aadhaar_num='{$aadhaar_num}'";
+    $result = mysqli_query($conn, $sql);
+    $user_auth  = mysqli_fetch_array($result);
+} else {
+    $user_auth  = mysqli_fetch_array($result);
+}
+
 ?>
 
 <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
@@ -75,9 +97,9 @@ $user_auth  = mysqli_fetch_array($result);
                             <li>
                                 <a href="<?php echo  urlBase() . $contact_and_basic_info ?> ">Contact and Basic Info</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo  urlBase() . $general_history ?> ">General History</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </li>
