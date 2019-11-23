@@ -224,3 +224,12 @@ html, body {
     transform: translate(100%, 100%);
   }
 }
+
+.modal-full {
+  min-width: 90%;
+  margin: 0;
+}
+
+.modal-full .modal-content {
+  min-height: 90vh;
+}

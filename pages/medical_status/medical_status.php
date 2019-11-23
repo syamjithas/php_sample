@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+
+if (isset($_GET["medical_status_id"])) {
+	$medical_status_id = $_GET["medical_status_id"];
+	$hideSideNav = true;
+	$hideHeader = true;
+	$disableForm = true;
+	$hideSaveButton = true;
+}
+?>
 
 <head>
 	<?php include '../../common/head.php'; ?>
@@ -10,11 +20,15 @@
 	<?php include '../../common/loader.php'; ?>
 	<div class="page-wrapper chiller-theme toggled">
 		<?php include '../../common/side-nav.php'; ?>
-		<main class="page-content">
-			<?php include '../../common/header.php'; ?>
+		<main class="page-content" <?php if (isset($hideSideNav) && $hideSideNav) echo 'style="padding-left:0px;"'; ?>>
+			<?php if (isset($hideHeader) && !$hideHeader)  include '../../common/header.php'; ?>
 			<?php
 			$aadhaar_num = base64_decode($_COOKIE["bas"]);
-			$sql = "SELECT * FROM medical_status WHERE aadhaar_num='{$aadhaar_num}'";
+			if ($medical_status_id) {
+				$sql = "SELECT * FROM medical_status WHERE medical_status_id='{$medical_status_id}'";
+			} else {
+				$sql = "SELECT * FROM medical_status WHERE aadhaar_num='{$aadhaar_num}'";
+			}
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
 				$medical_status = mysqli_fetch_array($result);
@@ -22,7 +36,7 @@
 			?>
 			<div class="container">
 				<form id="medical_status_from" class="needs-validation" autocomplete="off">
-					<fieldset id="medical_status_fieldset" autocomplete="false">
+					<fieldset id="medical_status_fieldset" autocomplete="false" <?php if (isset($disableForm) && $disableForm) echo 'disabled="disabled"'; ?>>
 						<div class="form-row">
 							<div class="form-group col-md-2">
 								<label for="height">Height</label>
@@ -266,7 +280,7 @@
 						<input type="hidden" name="longitude" id="longitude">
 
 					</fieldset>
-					<div class="form-group">
+					<div class="form-group" <?php if (isset($hideSaveButton) && $hideSaveButton) echo 'style="display:none"';?>>
 						<button type="button" class="btn btn-primary" onclick="edit_form(this)">Save as Draft</button>
 						<button type="submit" class="btn btn-success" onclick="save_form(this)">Save</button>
 					</div>

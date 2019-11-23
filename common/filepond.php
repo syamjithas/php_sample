@@ -9,4 +9,5 @@ echo '<script src="' . urlBase() . '/lib/filepond/js/filepond-plugin-image-exif-
 echo '<script src="' . urlBase() . '/lib/filepond/js/filepond-plugin-image-preview.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/filepond/js/filepond.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/filepond/js/filepond.jquery.js"></script>';
+?>
 
