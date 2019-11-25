@@ -64,7 +64,7 @@
 								<tr>
 									<th scope="col">#</th>
 									<th scope="col">Date</th>
-									<th scope="col">medical</th>
+									<th scope="col">Medical</th>
 									<th scope="col">Open</th>
 								</tr>
 							</thead>

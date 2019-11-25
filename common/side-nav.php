@@ -39,7 +39,7 @@ if (mysqli_num_rows($result) == 0) {
 <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
     <i class="fas fa-bars"></i>
 </a>
-<nav id="sidebar" class="sidebar-wrapper"  <?php if(isset($hideSideNav) && $hideSideNav) echo 'style="display:none"'; ?> >
+<nav id="sidebar" class="sidebar-wrapper" <?php if (isset($hideSideNav) && $hideSideNav) echo 'style="display:none"'; ?>>
     <div class="sidebar-content">
         <div class="sidebar-brand">
             <a href="#">HIE</a>
@@ -116,9 +116,11 @@ if (mysqli_num_rows($result) == 0) {
                             <li>
                                 <a href="<?php echo  urlBase() . $medical_history ?> ">Medical History</a>
                             </li>
-                            <li>
-                                <a href="<?php echo  urlBase() . $death_report ?> ">Death Report</a>
-                            </li>
+                            <?php if ($user_auth['role'] == 2) { ?>
+                                <li>
+                                    <a href="<?php echo  urlBase() . $death_report ?> ">Death Report</a>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </li>
@@ -134,15 +136,15 @@ if (mysqli_num_rows($result) == 0) {
     </div>
 
     <div class="sidebar-footer">
-        <a href="#">
+        <a href="#" onclick="signout()">
             <i class="fa fa-bell"></i>
             <span class="badge badge-pill badge-warning notification">3</span>
         </a>
-        <a href="#">
+        <a href="#" onclick="signout()">
             <i class="fa fa-envelope"></i>
             <span class="badge badge-pill badge-success notification">7</span>
         </a>
-        <a href="#">
+        <a href="#" onclick="settings()">
             <i class="fa fa-cog"></i>
             <span class="badge-sonar"></span>
         </a>

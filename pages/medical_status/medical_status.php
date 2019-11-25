@@ -24,7 +24,7 @@ if (isset($_GET["medical_status_id"])) {
 			<?php if (isset($hideHeader) && !$hideHeader)  include '../../common/header.php'; ?>
 			<?php
 			$aadhaar_num = base64_decode($_COOKIE["bas"]);
-			if ($medical_status_id) {
+			if (isset($medical_status_id)) {
 				$sql = "SELECT * FROM medical_status WHERE medical_status_id='{$medical_status_id}'";
 			} else {
 				$sql = "SELECT * FROM medical_status WHERE aadhaar_num='{$aadhaar_num}'";
@@ -242,36 +242,66 @@ if (isset($_GET["medical_status_id"])) {
 								</div>
 							</div>
 						</div>
-
-						<div class="form-group">
-							<label for="medical">Present Medical</label>
-							<textarea class="form-control" name="medical" id="medical" rows="5"><?php echo $medical_status['medical']; ?></textarea>
-						</div>
-						<div class="form-group">
-							<label for="surgical">Present Surgical</label>
-							<textarea class="form-control" name="surgical" id="surgical" rows="5"><?php echo $medical_status['surgical']; ?></textarea>
-						</div>
-						<div class="form-group">
-							<label for="present_medications">Present Medications</label>
-							<textarea class="form-control" name="present_medications" id="present_medications" rows="5"><?php echo $medical_status['present_medications']; ?></textarea>
-						</div>
-						<div class="form-group">
-							<label for="drug_allergies Allergies">Present Drug Allergies</label>
-							<textarea class="form-control" name="drug_allergies" id="drug_allergies" rows="5"><?php echo $medical_status['drug_allergies']; ?></textarea>
-						</div>
-						<div class="form-group col-md-3">
-							<label for="alive">Alive</label>
+						<?php if (isset($hideSaveButton) && $hideSaveButton) { ?>
 							<div class="form-group">
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" <?php echo $medical_status['alive'] ?  "checked" : "";  ?> type="radio" name="alive" id="alive1" value="Yes">
-									<label class="form-check-label" for="alive1">Yes</label>
+								<div class="card border-secondary mb-3">
+									<div class="card-header">Medical</div>
+									<div class="card-body text-secondary">
+										<p class="card-text"><?php echo $medical_status['medical']; ?></p>
+									</div>
 								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" <?php echo $medical_status['alive'] ?  "checked" : "";  ?> type="radio" name="alive" id="alive2" value="No">
-									<label class="form-check-label" for="alive2">No</label>
+								<div class="card border-secondary mb-3">
+									<div class="card-header">Surgical</div>
+									<div class="card-body text-secondary">
+										<p class="card-text"><?php echo $medical_status['surgical']; ?></p>
+									</div>
+								</div>
+								<div class="card border-secondary mb-3">
+									<div class="card-header">Present Medications</div>
+									<div class="card-body text-secondary">
+										<p class="card-text"><?php echo $medical_status['present_medications']; ?></p>
+									</div>
+								</div>
+								<div class="card border-secondary mb-3">
+									<div class="card-header">Drug Allergies</div>
+									<div class="card-body text-secondary">
+										<p class="card-text"><?php echo $medical_status['drug_allergies']; ?></p>
+									</div>
 								</div>
 							</div>
-						</div>
+						<?php } else { ?>
+							<div class="form-group">
+								<label for="medical">Present Medical</label>
+								<textarea class="form-control" name="medical" id="medical" rows="5"><?php echo $medical_status['medical']; ?></textarea>
+							</div>
+							<div class="form-group">
+								<label for="surgical">Present Surgical</label>
+								<textarea class="form-control" name="surgical" id="surgical" rows="5"><?php echo $medical_status['surgical']; ?></textarea>
+							</div>
+							<div class="form-group">
+								<label for="present_medications">Present Medications</label>
+								<textarea class="form-control" name="present_medications" id="present_medications" rows="5"><?php echo $medical_status['present_medications']; ?></textarea>
+							</div>
+							<div class="form-group">
+								<label for="drug_allergies Allergies">Present Drug Allergies</label>
+								<textarea class="form-control" name="drug_allergies" id="drug_allergies" rows="5"><?php echo $medical_status['drug_allergies']; ?></textarea>
+							</div>
+						<?php } ?>
+						<?php if ($user_auth['role'] == 2) { ?>
+							<div class="form-group col-md-3">
+								<label for="alive">Alive</label>
+								<div class="form-group">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $medical_status['alive'] ?  "checked" : "";  ?> type="radio" name="alive" id="alive1" value="Yes">
+										<label class="form-check-label" for="alive1">Yes</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" <?php echo $medical_status['alive'] ?  "checked" : "";  ?> type="radio" name="alive" id="alive2" value="No">
+										<label class="form-check-label" for="alive2">No</label>
+									</div>
+								</div>
+							</div>
+						<?php } ?>
 						<div class="form-group">
 							<label for="medical">Reports</label>
 							<input type="file" class="filepond" name="filepond" id="report-file-upload" multiple data-max-file-size="3MB" data-max-files="5" />
@@ -280,7 +310,7 @@ if (isset($_GET["medical_status_id"])) {
 						<input type="hidden" name="longitude" id="longitude">
 
 					</fieldset>
-					<div class="form-group" <?php if (isset($hideSaveButton) && $hideSaveButton) echo 'style="display:none"';?>>
+					<div class="form-group" <?php if (isset($hideSaveButton) && $hideSaveButton) echo 'style="display:none"'; ?>>
 						<button type="button" class="btn btn-primary" onclick="edit_form(this)">Save as Draft</button>
 						<button type="submit" class="btn btn-success" onclick="save_form(this)">Save</button>
 					</div>
