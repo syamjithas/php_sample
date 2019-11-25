@@ -4,3 +4,4 @@ from
 $suppress_localhost = ($wampConf['urlAddLocalhost'] == 'on' ? true : false);
 to 
 $suppress_localhost = false;
+
