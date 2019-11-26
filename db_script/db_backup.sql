@@ -13,10 +13,12 @@
 
 
 -- Dumping database structure for hie_db
+DROP DATABASE IF EXISTS `hie_db`;
 CREATE DATABASE IF NOT EXISTS `hie_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `hie_db`;
 
 -- Dumping structure for table hie_db.aadhaar_dump
+DROP TABLE IF EXISTS `aadhaar_dump`;
 CREATE TABLE IF NOT EXISTS `aadhaar_dump` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `aadhaar_num` varchar(45) DEFAULT NULL,
@@ -455,6 +457,7 @@ INSERT INTO `aadhaar_dump` (`id`, `aadhaar_num`) VALUES
 /*!40000 ALTER TABLE `aadhaar_dump` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.alert
+DROP TABLE IF EXISTS `alert`;
 CREATE TABLE IF NOT EXISTS `alert` (
   `alert_id` int(11) DEFAULT NULL,
   `heading` int(11) DEFAULT NULL,
@@ -467,6 +470,7 @@ CREATE TABLE IF NOT EXISTS `alert` (
 /*!40000 ALTER TABLE `alert` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.death_report
+DROP TABLE IF EXISTS `death_report`;
 CREATE TABLE IF NOT EXISTS `death_report` (
   `aadhaar_num` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -476,6 +480,7 @@ CREATE TABLE IF NOT EXISTS `death_report` (
 /*!40000 ALTER TABLE `death_report` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.general_history
+DROP TABLE IF EXISTS `general_history`;
 CREATE TABLE IF NOT EXISTS `general_history` (
   `aadhaar_num` varchar(50) NOT NULL,
   `marital_status` varchar(50) DEFAULT 'NA',
@@ -503,6 +508,7 @@ INSERT INTO `general_history` (`aadhaar_num`, `marital_status`, `no_of_children`
 /*!40000 ALTER TABLE `general_history` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.medical_status
+DROP TABLE IF EXISTS `medical_status`;
 CREATE TABLE IF NOT EXISTS `medical_status` (
   `medical_status_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `aadhaar_num` varchar(50) NOT NULL,
@@ -564,6 +570,7 @@ INSERT INTO `medical_status` (`medical_status_id`, `aadhaar_num`, `height`, `wei
 /*!40000 ALTER TABLE `medical_status` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.message
+DROP TABLE IF EXISTS `message`;
 CREATE TABLE IF NOT EXISTS `message` (
   `message_id` int(11) DEFAULT NULL,
   `message` text,
@@ -577,6 +584,7 @@ CREATE TABLE IF NOT EXISTS `message` (
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.notification
+DROP TABLE IF EXISTS `notification`;
 CREATE TABLE IF NOT EXISTS `notification` (
   `notification_id` int(11) DEFAULT NULL,
   `message` longtext,
@@ -590,6 +598,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
 /*!40000 ALTER TABLE `notification` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.otp_history
+DROP TABLE IF EXISTS `otp_history`;
 CREATE TABLE IF NOT EXISTS `otp_history` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `aadhaar_num` varchar(45) NOT NULL,
@@ -615,10 +624,11 @@ INSERT INTO `otp_history` (`id`, `aadhaar_num`, `otp`, `date_of_generation`) VAL
 	(12, '412620596040', '5798', '2019-07-31 22:48:41'),
 	(13, '349110940796', '1511', '2019-09-05 22:53:12'),
 	(14, '393371115804', '1800', '2019-09-05 23:10:25'),
-	(15, '821504288186', '1763', '2019-11-26 00:14:00');
+	(15, '821504288186', '9081', '2019-11-26 23:17:17');
 /*!40000 ALTER TABLE `otp_history` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.user_auth
+DROP TABLE IF EXISTS `user_auth`;
 CREATE TABLE IF NOT EXISTS `user_auth` (
   `aadhaar_num` varchar(50) NOT NULL,
   `privilege` int(11) DEFAULT NULL,
@@ -638,6 +648,7 @@ INSERT INTO `user_auth` (`aadhaar_num`, `privilege`, `role`, `session_start`, `s
 /*!40000 ALTER TABLE `user_auth` ENABLE KEYS */;
 
 -- Dumping structure for table hie_db.user_details
+DROP TABLE IF EXISTS `user_details`;
 CREATE TABLE IF NOT EXISTS `user_details` (
   `aadhaar_num` varchar(50) NOT NULL,
   `first_name` varchar(50) DEFAULT NULL,
@@ -659,7 +670,7 @@ CREATE TABLE IF NOT EXISTS `user_details` (
 -- Dumping data for table hie_db.user_details: 3 rows
 /*!40000 ALTER TABLE `user_details` DISABLE KEYS */;
 INSERT INTO `user_details` (`aadhaar_num`, `first_name`, `middle_name`, `last_name`, `dob`, `gender`, `email`, `primary_contact`, `secondary_contact`, `zip`, `building`, `street`, `city`, `state`) VALUES
-	('821504288186', 'KARTHIKA', '', 'syamjith', '1999-02-06 00:00:00', 'F', 'karthikasyamjith@live.in', '8423948023', '', '644564', 'asdasd', 'asd', 'asdasd', 'Uttar Pradesh'),
+	('821504288186', 'KARTHIKA', '', 'vijayan', '1999-02-06 00:00:00', 'F', 'karthikasyamjith@live.in', '8423948023', '', '644564', 'asdasd', 'asd', 'asdasd', 'Uttar Pradesh'),
 	('467269561688', 'adasd', '', 'asdasasd', '1970-01-01 00:00:00', 'M', 'asdsad@asd.com', '5324545435', '3453453453', '242342', 'aasdasd', 'asdsad', 'asdasd', 'Maharashtra'),
 	('', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `user_details` ENABLE KEYS */;
