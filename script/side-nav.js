@@ -5,6 +5,14 @@ function settings() {
   location.assign($hieUtil.getBaseUrl() + $settings);
 }
 
+function my_message() {
+  location.assign($hieUtil.getBaseUrl() + $my_message);
+}
+
+function notifications() {
+  location.assign($hieUtil.getBaseUrl() + $notifications);
+}
+
 function bindAllScript() {
   var currentPath = location.pathname.split("/");
   currentPath = currentPath[currentPath.length - 1];
@@ -12,5 +20,7 @@ function bindAllScript() {
 
   var lis = $(selectedLink).parents("li");
   lis.addClass("active");
-  $(selectedLink).parents("div.sidebar-submenu")[0].style.display = "block";
+  if (selectedLink) {
+    $(selectedLink).parents("div.sidebar-submenu")[0].style.display = "block";
+  }
 }

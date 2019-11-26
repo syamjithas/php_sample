@@ -16,6 +16,7 @@ function urlBase()
 echo '<link rel="shortcut icon" href="' . urlBase() . '/image/favicon.ico" type="image/x-icon">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/css/style.css">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/css/all.css">';
+echo '<link rel="stylesheet" href="' . urlBase() . '/css/font-awesome.min.css">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/css/header.css">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/lib/bootstrap/css/bootstrap.min.css">';
 echo '<link rel="stylesheet" href="' . urlBase() . '/lib/bootstrap/css/bootstrap-grid.min.css">';

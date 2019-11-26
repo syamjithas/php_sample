@@ -136,11 +136,11 @@ if (mysqli_num_rows($result) == 0) {
     </div>
 
     <div class="sidebar-footer">
-        <a href="#" onclick="signout()">
+        <a href="#" onclick="notifications()">
             <i class="fa fa-bell"></i>
             <span class="badge badge-pill badge-warning notification">3</span>
         </a>
-        <a href="#" onclick="signout()">
+        <a href="#" onclick="my_message()">
             <i class="fa fa-envelope"></i>
             <span class="badge badge-pill badge-success notification">7</span>
         </a>
