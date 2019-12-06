@@ -74,14 +74,18 @@ if (mysqli_num_rows($result) == 0) {
         <!-- sidebar-header  -->
         <div class="sidebar-search">
             <div>
-                <div class="input-group">
-                    <input type="text" class="form-control search-menu" placeholder="Search...">
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </span>
-                    </div>
-                </div>
+                <form id="search_from" class="needs-validation" autocomplete="off">
+                    <fieldset id="search_fieldset" autocomplete="false">
+                        <div class="input-group">
+                            <input type="text" class="form-control search-menu" placeholder="Search..." minlength="12" maxlength="12" autocomplete="false" onkeypress="searchAadhaar(event)" id="aadhaar_num" name="aadhaar_num" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
         <!-- sidebar-search  -->
@@ -116,7 +120,7 @@ if (mysqli_num_rows($result) == 0) {
                             <li>
                                 <a href="<?php echo  urlBase() . $medical_history ?> ">Medical History</a>
                             </li>
-                            <?php if ($user_auth['role'] == 2) { ?>
+                            <?php if ($user_auth['role'] == 'doctor') { ?>
                                 <li>
                                     <a href="<?php echo  urlBase() . $death_report ?> ">Death Report</a>
                                 </li>

@@ -10,3 +10,4 @@ $medical_status_save ="/pages/medical_status/medical_status_save.php";
 $settings ="/pages/settings/settings.php";
 $my_message ="/pages/my_message/my_message.php";
 $notifications ="/pages/notifications/notifications.php";
+$search ="/common/search.php";

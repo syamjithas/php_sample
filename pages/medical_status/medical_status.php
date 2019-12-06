@@ -287,7 +287,7 @@ if (isset($_GET["medical_status_id"])) {
 								<textarea class="form-control" name="drug_allergies" id="drug_allergies" rows="5"><?php echo $medical_status['drug_allergies']; ?></textarea>
 							</div>
 						<?php } ?>
-						<?php if ($user_auth['role'] == 2) { ?>
+						<?php if ($user_auth['role'] == 'doctor') { ?>
 							<div class="form-group col-md-3">
 								<label for="alive">Alive</label>
 								<div class="form-group">

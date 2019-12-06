@@ -70,16 +70,17 @@
 							</thead>
 							<tbody>
 								<?php
-
-								$rowNumber = 1;
-								while ($row = mysqli_fetch_assoc($medical_status)) {
-									echo "<tr>
+								if ($length > 0) {
+									$rowNumber = 1;
+									while ($row = mysqli_fetch_assoc($medical_status)) {
+										echo "<tr>
                                 			<td>{$rowNumber}</td>
                                 			<td>{$row['created_date']}</td>
 											<td>{$row['medical']}</td>
 											<td><a href='#' data-toggle='modal' data-target='.bd-example-modal-lg' onclick='openMedicalStatus({$row['medical_status_id']})'>link</a></td>
                             			</tr>";
-									$rowNumber++;
+										$rowNumber++;
+									}
 								}
 								?>
 							</tbody>
