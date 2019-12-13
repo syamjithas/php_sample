@@ -137,20 +137,20 @@
 								<div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
 									<div class="online"></div>
 								</div>
-								<p class="text">hi doc </p>
+								<p class="text">Hi Doc</p>
 							</div>
 							<div class="message text-only">
-								<p class="text"> sd</p>
+								<p class="text">Nipha Virus is plreding please take necessary precautions</p>
 							</div>
 							<p class="time"> </p>
 							<div class="message text-only">
 								<div class="response">
-									<p class="text">asd </p>
+									<p class="text">Thanks for the notication</p>
 								</div>
 							</div>
 							<div class="message text-only">
 								<div class="response">
-									<p class="text"> asdfas as </p>
+									<p class="text">Kindly let us know if any update on the medicine</p>
 								</div>
 							</div>
 							<p class="response-time time"> 15h04</p>
@@ -158,7 +158,7 @@
 								<div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
 									<div class="online"></div>
 								</div>
-								<p class="text">asd asd asd  </p>
+								<p class="text">Sure </p>
 							</div>
 							<p class="time"> 15h09</p>
 						</div>

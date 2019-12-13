@@ -34,11 +34,12 @@
 				</ul>
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-						<div class="alert alert-success" role="alert">
-							<h4 class="alert-heading">Well done!</h4>
-							<p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+						<div class="alert alert-warning" role="alert">
+							<h4 class="alert-heading">Nipah spreading!</h4>
+							<p>
+								Nipah virus is a zoonotic virus (it is transmitted from animals to humans) and can also be transmitted through contaminated food or directly between people. In infected people, it causes a range of illnesses from asymptomatic (subclinical) infection to acute respiratory illness and fatal encephalitis. The virus can also cause severe disease in animals such as pigs, resulting in significant economic losses for farmers.</p>
 							<hr>
-							<p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+							<p class="mb-0">Be Alert</p>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
