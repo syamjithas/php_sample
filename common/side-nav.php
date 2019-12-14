@@ -50,7 +50,9 @@ if (mysqli_num_rows($result) == 0) {
         <div class="sidebar-header">
             <div class="user-pic">
                 <?php
-                if ($user['gender'] == 'M') {
+                if(isset($user['user_image'])){
+                    echo "<img class='img-responsive img-rounded' src='" . $user['user_image']. "' alt='User picture'>";
+                }else if ($user['gender'] == 'M') {
 
                     echo "<img class='img-responsive img-rounded' src='" . urlBase() . "/image/male.png' alt='User picture'>";
                 } else {
@@ -142,15 +144,15 @@ if (mysqli_num_rows($result) == 0) {
     <div class="sidebar-footer">
         <a href="#" onclick="notifications()">
             <i class="fa fa-bell"></i>
-            <span class="badge badge-pill badge-warning notification">3</span>
+            <!-- <span class="badge badge-pill badge-warning notification">3</span> -->
         </a>
         <a href="#" onclick="my_message()">
             <i class="fa fa-envelope"></i>
-            <span class="badge badge-pill badge-success notification">7</span>
+            <!-- <span class="badge badge-pill badge-success notification">7</span> -->
         </a>
         <a href="#" onclick="settings()">
             <i class="fa fa-cog"></i>
-            <span class="badge-sonar"></span>
+            <!-- <span class="badge-sonar"></span> -->
         </a>
         <a href="#" onclick="signout()">
             <i class="fa fa-power-off"></i>

@@ -5,6 +5,7 @@ echo '<link rel="stylesheet" href="' . urlBase() . '/lib/filepond/css/filepond-p
 echo '<link rel="stylesheet" href="' . urlBase() . '/lib/filepond/css/filepond.min.css">';
 echo '<script src="' . urlBase() . '/lib/filepond/js/filepond-plugin-file-encode.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/filepond/js/filepond-plugin-file-validate-size.min.js"></script>';
+echo '<script src="' . urlBase() . '/lib/filepond/js/filepond-plugin-file-validate-type.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/filepond/js/filepond-plugin-image-exif-orientation.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/filepond/js/filepond-plugin-image-preview.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/filepond/js/filepond.min.js"></script>';

@@ -3,6 +3,8 @@
 
 <head>
 	<?php include '../../common/head.php'; ?>
+	<?php include '../../common/filepond.php'; ?>
+
 </head>
 
 <body>
@@ -92,22 +94,11 @@
 								<input type="text" class="form-control" name="zip" id="zip" placeholder="686662" value="<?php echo $user['zip'] ?>" required>
 							</div>
 						</div>
-						<div class="form-row">
-							<div class="form-group col-md-12">
-								<label for="user_image">User Image</label>
-								<div class="input-group">
-									<div class="custom-file">
-										<input type="file" class="custom-file-input" id="user_image_select" aria-describedby="user_image_add_on">
-										<label class="custom-file-label" for="user_image_select">Choose file</label>
-									</div>
-									<div class="input-group-append">
-										<button class="btn btn-outline-secondary" type="button" id="user_image_add_on">Button</button>
-									</div>
-								</div>
-
-							</div>
+						
+						<div class="form-group">
+							<label for="medical">User Image</label>
+							<input type="file" class="filepond"  id="user-image-file-upload" multiple data-max-file-size="3MB" data-max-files="5" />
 						</div>
-
 					</fieldset>
 					<div class="form-group">
 						<button type="button" class="btn btn-primary" onclick="edit_form(this)">Edit</button>
