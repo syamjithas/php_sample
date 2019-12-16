@@ -14,6 +14,8 @@
 			<?php include '../../common/header.php'; ?>
 			<?php
 			$aadhaar_num = base64_decode($_COOKIE["bas"]);
+			$aadhaar_num_bkp = $aadhaar_num;
+			$aadhaar_num = isset($paadhaar_num) ? $paadhaar_num : $aadhaar_num;
 			$sql = "SELECT * FROM death_report WHERE aadhaar_num='{$aadhaar_num}'";
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
@@ -213,6 +215,9 @@
 	</div>
 	<?php include '../../common/footer.php'; ?>
 	<script src="./death_report.js"></script>
+	<php? 
+		$aadhaar_num = $aadhaar_num_bkp; 
+	?>
 </body>
 
 </html>

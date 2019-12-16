@@ -5,6 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   try {
     $data = json_decode(file_get_contents('php://input'), true);
     $aadhaar_num = base64_decode($_COOKIE["bas"]);
+    $aadhaar_num_bkp = $aadhaar_num;
+		$aadhaar_num = isset($_COOKIE["paadhaar"]) ? $_COOKIE["paadhaar"] : $aadhaar_num;
     $image_uploded = isset($data['user_image']) ? 1 : 0;
     $sql = "UPDATE hie_db.user_details SET  
     first_name = '{$data['first_name']}',
@@ -24,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     WHERE  aadhaar_num='{$aadhaar_num}' ";
     $data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $data['user_image']));
     file_put_contents("../../data/profile_pic/{$aadhaar_num}.png", $data);
-    $result = mysqli_query($conn, $sql);
+    $aadhaar_num = $aadhaar_num_bkp;
     $response = new stdClass();
     $response->isValid = true;
     $response->status = "success";

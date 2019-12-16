@@ -26,22 +26,33 @@ function bindAllScript() {
 }
 
 function searchAadhaar(ele) {
-  var form = document.getElementById('search_from');
+  var form = document.getElementById("search_from");
   if (form.checkValidity()) {
-      var request = $hieUtil.serializeArray(form);
-      $hieUtil.xhr({
-          requestMethod: "post",
-          url: $hieUtil.getBaseUrl() + $search,
-          request: JSON.stringify(request),
-          successCallback: function (data) {
-              if (data.isValid) {
-                  var fieldset = document.getElementById("general_history_fieldset");
-                  fieldset.setAttribute("disabled", "");
-                  ele.setAttribute("disabled", "");
-                  ele.previousElementSibling.removeAttribute("disabled");
-              }
-          },
-          errorCallback: function (data) { }
-      });
+    var request = $hieUtil.serializeArray(form);
+    $hieUtil.xhr({
+      requestMethod: "post",
+      url: $hieUtil.getBaseUrl() + $search,
+      request: JSON.stringify(request),
+      successCallback: function(data) {
+        if (data.isValid) {
+          location.reload();
+        }
+      },
+      errorCallback: function(data) {}
+    });
   }
+}
+
+function backToMyProfile() {
+  $hieUtil.xhr({
+    requestMethod: "post",
+    url: $hieUtil.getBaseUrl() + $delete_cookie,
+    request: "",
+    successCallback: function(data) {
+      if (data.isValid) {
+        location.reload();
+      }
+    },
+    errorCallback: function(data) {}
+  });
 }

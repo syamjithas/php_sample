@@ -13,6 +13,8 @@
 			<?php include '../../common/header.php'; ?>
 			<?php
 			$aadhaar_num = base64_decode($_COOKIE["bas"]);
+			$aadhaar_num_bkp = $aadhaar_num;
+			$aadhaar_num = isset($paadhaar_num) ? $paadhaar_num : $aadhaar_num;
 			$sql = "SELECT aadhaar_num FROM medical_status WHERE aadhaar_num ='{$aadhaar_num}'";
 			$result = mysqli_query($conn, $sql);
 			$length = mysqli_num_rows($result);
@@ -27,7 +29,7 @@
 			$max = $length > 10 ? $curretPageNumber * 10 : $length;
 			$min = $length > 10 ? $max - 9 : 1;
 
-			$sql = "SELECT * FROM medical_status WHERE aadhaar_num ='{$aadhaar_num}' ORDER BY created_date DESC LIMIT {$min}, {$max}";
+			$sql = "SELECT * FROM medical_status WHERE aadhaar_num ='{$aadhaar_num}' ORDER BY created_date DESC ";
 			$result = mysqli_query($conn, $sql);
 			if (mysqli_num_rows($result) > 0) {
 				$medical_status = $result;
@@ -70,7 +72,7 @@
 							</thead>
 							<tbody>
 								<?php
-								if ($length > 0) {
+								if ($length > 1) {
 									$rowNumber = 1;
 									while ($row = mysqli_fetch_assoc($medical_status)) {
 										echo "<tr>
@@ -107,6 +109,9 @@
 	</div>
 	<?php include '../../common/footer.php'; ?>
 	<script src="./medical_history.js"></script>
+	<php? 
+		$aadhaar_num = $aadhaar_num_bkp; 
+	?>
 </body>
 
 </html>

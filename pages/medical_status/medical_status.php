@@ -23,16 +23,18 @@ if (isset($_GET["medical_status_id"])) {
 		<main class="page-content" <?php if (isset($hideSideNav) && $hideSideNav) echo 'style="padding-left:0px;"'; ?>>
 			<?php if (isset($hideHeader) && !$hideHeader)  include '../../common/header.php'; ?>
 			<?php
-			$aadhaar_num = base64_decode($_COOKIE["bas"]);
-			if (isset($medical_status_id)) {
-				$sql = "SELECT * FROM medical_status WHERE medical_status_id='{$medical_status_id}'";
-			} else {
-				$sql = "SELECT * FROM medical_status WHERE aadhaar_num='{$aadhaar_num}'";
-			}
-			$result = mysqli_query($conn, $sql);
-			if (mysqli_num_rows($result) > 0) {
-				$medical_status = mysqli_fetch_array($result);
-			}
+				$aadhaar_num_bkp = $aadhaar_num;
+				$aadhaar_num = isset($paadhaar_num) ? $paadhaar_num : $aadhaar_num;
+				$aadhaar_num = base64_decode($_COOKIE["bas"]);
+				if (isset($medical_status_id)) {
+					$sql = "SELECT * FROM medical_status WHERE medical_status_id='{$medical_status_id}'";
+				} else {
+					$sql = "SELECT * FROM medical_status WHERE aadhaar_num='{$aadhaar_num}'";
+				}
+				$result = mysqli_query($conn, $sql);
+				if (mysqli_num_rows($result) > 0) {
+					$medical_status = mysqli_fetch_array($result);
+				}
 			?>
 			<div class="container">
 				<form id="medical_status_from" class="needs-validation" autocomplete="off">
@@ -43,9 +45,9 @@ if (isset($_GET["medical_status_id"])) {
 								<div class="input-group">
 									<select name="height" id="height" class="form-control" required>
 										<?php
-										for ($i = 0; $i < 300; $i++) {
-											echo '<option ' . ($medical_status['height'] == $i ? 'selected="selected"' : '') . '>' . $i . '</option>';
-										}
+																																			for ($i = 0; $i < 300; $i++) {
+																																				echo '<option ' . ($medical_status['height'] == $i ? 'selected="selected"' : '') . '>' . $i . '</option>';
+																																			}
 										?>
 									</select>
 									<div class="input-group-append">
@@ -60,9 +62,9 @@ if (isset($_GET["medical_status_id"])) {
 									<select name="weight" id="weight" class="form-control" required>
 										<?php
 
-										for ($i = 0; $i < 700; $i++) {
-											echo '<option ' . ($medical_status['weight'] == $i ? 'selected="selected"' : '') . '>' . $i . '</option>';
-										}
+																																			for ($i = 0; $i < 700; $i++) {
+																																				echo '<option ' . ($medical_status['weight'] == $i ? 'selected="selected"' : '') . '>' . $i . '</option>';
+																																			}
 										?>
 									</select>
 									<div class="input-group-append">
@@ -76,9 +78,9 @@ if (isset($_GET["medical_status_id"])) {
 									<select name="pulse" id="pulse" class="form-control" required>
 										<?php
 
-										for ($i = 0; $i < 300; $i++) {
-											echo '<option ' . ($medical_status['pulse'] == $i ? 'selected="selected"' : '') . '>' . $i . '</option>';
-										}
+												for ($i = 0; $i < 300; $i++) {
+													echo '<option ' . ($medical_status['pulse'] == $i ? 'selected="selected"' : '') . '>' . $i . '</option>';
+												}
 										?>
 									</select>
 									<div class="input-group-append">
@@ -287,7 +289,7 @@ if (isset($_GET["medical_status_id"])) {
 								<textarea class="form-control" name="drug_allergies" id="drug_allergies" rows="5"><?php echo $medical_status['drug_allergies']; ?></textarea>
 							</div>
 						<?php } ?>
-						<?php if ($user_auth['role'] == 'doctor') { ?>
+						<?php if ($_view && $user_auth['role'] == 'doctor') { ?>
 							<div class="form-group col-md-3">
 								<label for="alive">Alive</label>
 								<div class="form-group">
@@ -320,6 +322,9 @@ if (isset($_GET["medical_status_id"])) {
 	</div>
 	<?php include '../../common/footer.php'; ?>
 	<script src="./medical_status.js"></script>
+	<?php
+		$aadhaar_num  = $aadhaar_num_bkp;
+	?>
 </body>
 
 </html>

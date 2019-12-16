@@ -12,4 +12,5 @@ $settings ="/pages/settings/settings.php";
 $my_message ="/pages/my_message/my_message.php";
 $notifications ="/pages/notifications/notifications.php";
 $search ="/common/search.php";
+$delete_cookie ="/common/delete_cookie.php";
 $death_report_save = "/pages/death_report/death_report_save.php";

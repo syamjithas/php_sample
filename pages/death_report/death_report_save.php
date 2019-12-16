@@ -5,7 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	try {
 		$data = json_decode(file_get_contents('php://input'), true);
 		$aadhaar_num = base64_decode($_COOKIE["bas"]);
-
+		$aadhaar_num_bkp = $aadhaar_num;
+		$aadhaar_num = isset($_COOKIE["paadhaar"]) ? $_COOKIE["paadhaar"] : $aadhaar_num;
 		$sql = "SELECT * FROM death_report WHERE aadhaar_num='{$aadhaar_num}'";
 		$result = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($result) > 0) {
@@ -64,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       '{$data['further_action_needed']}',
 			'{$data['details']}')";
 		}
-
+		$aadhaar_num = $aadhaar_num_bkp;
 		$result = mysqli_query($conn, $sql);
 		$response = new stdClass();
 		$response->isValid = true;

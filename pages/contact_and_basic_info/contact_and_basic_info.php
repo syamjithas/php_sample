@@ -13,6 +13,10 @@
 		<?php include '../../common/side-nav.php'; ?>
 		<main class="page-content">
 			<?php include '../../common/header.php'; ?>
+			<?php
+			$user_bkp = $user;
+			$user = isset($puser) ? $puser : $user;
+			?>
 			<div class="container">
 				<form id="contact_and_basic_info_form" class="needs-validation" method="get" action="./contact_and_basic_info.php" autocomplete="off">
 					<fieldset id="contact_and_basic_info_fieldset" disabled autocomplete="false">
@@ -81,10 +85,10 @@
 								<select name="state" id="state" class="form-control" required>
 									<option value="">Choose...</option>
 									<?php
-									$states = array("Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir ", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli", "Daman and Diu", "Lakshadweep", "National Capital Territory of Delhi", "Puducherry");
-									for ($i = 0; $i < count($states); $i++) {
-										echo '<option ' . ($user['state'] == $states[$i] ? 'selected="selected"' : '') . '>' . $states[$i] . '</option>';
-									}
+																																																																										$states = array("Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir ", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli", "Daman and Diu", "Lakshadweep", "National Capital Territory of Delhi", "Puducherry");
+																																																																										for ($i = 0; $i < count($states); $i++) {
+																																																																											echo '<option ' . ($user['state'] == $states[$i] ? 'selected="selected"' : '') . '>' . $states[$i] . '</option>';
+																																																																										}
 									?>
 
 								</select>
@@ -94,10 +98,10 @@
 								<input type="text" class="form-control" name="zip" id="zip" placeholder="686662" value="<?php echo $user['zip'] ?>" required>
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label for="medical">User Image</label>
-							<input type="file" class="filepond"  id="user-image-file-upload" multiple data-max-file-size="3MB" data-max-files="5" />
+							<input type="file" class="filepond" id="user-image-file-upload" multiple data-max-file-size="3MB" data-max-files="5" />
 						</div>
 					</fieldset>
 					<div class="form-group">
@@ -109,11 +113,13 @@
 				</form>
 
 			</div>
-
 		</main>
 	</div>
 	<?php include '../../common/footer.php'; ?>
 	<script src="./contact_and_basic_info.js"></script>
+	<?php
+		$user  = $user_bkp;
+	?>
 </body>
 
 </html>
