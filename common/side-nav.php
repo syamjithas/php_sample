@@ -50,9 +50,9 @@ if (mysqli_num_rows($result) == 0) {
         <div class="sidebar-header">
             <div class="user-pic">
                 <?php
-                if(isset($user['user_image'])){
-                    echo "<img class='img-responsive img-rounded' src='" . $user['user_image']. "' alt='User picture'>";
-                }else if ($user['gender'] == 'M') {
+                if ($user['image_uploaded'] == 1) {
+                    echo "<img class='img-responsive img-rounded' src='" . urlBase() . "/data/profile_pic/" . $aadhaar_num . ".png' alt='User picture'>";
+                } else if ($user['gender'] == 'M') {
 
                     echo "<img class='img-responsive img-rounded' src='" . urlBase() . "/image/male.png' alt='User picture'>";
                 } else {
@@ -130,11 +130,19 @@ if (mysqli_num_rows($result) == 0) {
                         </ul>
                     </div>
                 </li>
-                <li>
+                <li class="sidebar-dropdown">
                     <a href="#">
                         <i class="fa fa-thermometer-three-quarters"></i>
                         <span>Dashboard</span>
                     </a>
+                    <div class="sidebar-submenu">
+                        <ul>
+                            <li>
+                                <a href="<?php echo  urlBase() . $analytics ?>">Analytics</a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>

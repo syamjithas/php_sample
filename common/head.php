@@ -27,6 +27,7 @@ echo '<script src="' . urlBase() . '/lib/bootstrap/js/popper.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/bootstrap/js/bootstrap.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/bootstrap/js/bootstrap.bundle.min.js"></script>';
 echo '<script src="' . urlBase() . '/lib/jquery.toast.min.js"></script>';
+echo '<script src="' . urlBase() . '/lib/d3.v4.js"></script>';
 echo '<script src="' . urlBase() . '/script/script.js"></script>';
 echo '<script src="' . urlBase() . '/script/enums.js"></script>';
 
