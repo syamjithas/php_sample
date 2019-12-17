@@ -15,7 +15,9 @@
       <?php include '../../common/header.php'; ?>
       <div class="container">
         <form id="contact_and_basic_info_form" class="needs-validation" method="get" action="./contact_and_basic_info.php" autocomplete="off">
+          <h3><strong>Cancer Patients </strong></h3>
           <div id="my_dataviz"></div>
+          <h3><strong>Diabetes Patients</strong></h3>
           <div id="my_dataviz1"></div>
         </form>
 

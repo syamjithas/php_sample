@@ -13,7 +13,7 @@ var svg = d3
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv($hieUtil.getBaseUrl()+"/data/3_TwoNumOrdered_comma.csv",
+d3.csv($hieUtil.getBaseUrl()+"/data/cancer.csv",
 
   // When reading the csv, I must format variables:
   function(d) {
@@ -85,7 +85,7 @@ var svg1 = d3
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv($hieUtil.getBaseUrl()+"/data/3_TwoNumOrdered_comma.csv",
+d3.csv($hieUtil.getBaseUrl()+"/data/Diabetes.csv",
 
   // When reading the csv, I must format variables:
   function(d) {
