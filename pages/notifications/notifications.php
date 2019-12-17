@@ -45,12 +45,12 @@
 					<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 						<div class="card">
 							<div class="card-header">
-								Featured
+								Request
 							</div>
 							<div class="card-body">
-								<h5 class="card-title">Special title treatment</h5>
-								<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-								<a href="#" class="btn btn-primary">Go somewhere</a>
+								<h5 class="card-title">Doctor Role Request</h5>
+								<p class="card-text">Dear Admin Kindly provide my Doctor role, I am a practising Doctro from Rajpoor</p>
+								<a href="#" class="btn btn-primary">Approve</a>
 							</div>
 						</div>
 						<br>
@@ -59,9 +59,9 @@
 								Featured
 							</div>
 							<div class="card-body">
-								<h5 class="card-title">Special title treatment</h5>
-								<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-								<a href="#" class="btn btn-primary">Go somewhere</a>
+								<h5 class="card-title">Doctor Role Request</h5>
+								<p class="card-text"></p>
+								<a href="#" class="btn btn-primary">Approve</a>
 							</div>
 						</div>
 					</div>
